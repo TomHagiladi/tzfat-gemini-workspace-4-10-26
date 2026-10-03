@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>הנחיות לתרגול - ג'מיני כסביבת עבודה</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --g:#75B743; --gd:#5E9A28; --gdd:#3F6E1C; --gp:#EDF5E4; --gt:#F5FAF0;
+  --red:#AF242A; --ink:#3A3936; --muted:#5F5D59; --line:#E2E7DB;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Heebo',Arial,sans-serif;color:var(--ink);background:#fff;font-size:21px;line-height:1.7}
+.skip-link{position:absolute;top:-100%;right:0;background:var(--gdd);color:#fff;padding:.75rem 1.5rem;font-weight:700;z-index:200;text-decoration:none}
+.skip-link:focus{top:0;outline:3px solid #f59e0b;outline-offset:2px}
+a:focus-visible,button:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.wrap{max-width:1500px;margin:0 auto;padding:0 48px}
+header{background:var(--gt);border-bottom:3px solid var(--g);padding:28px 0 24px}
+header .wrap{display:flex;align-items:center;gap:30px}
+header .ht{flex:1}
+header img{width:190px;display:block;margin-right:auto}
+h1{font-size:42px;line-height:1.2;color:var(--gdd);margin:0 0 6px;font-weight:800}
+.sub{color:var(--muted);margin:0;font-size:21px}
+nav{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+nav ul{list-style:none;margin:0;padding:12px 0;display:flex;flex-wrap:wrap;gap:8px 12px}
+nav a{display:inline-block;color:var(--gdd);text-decoration:none;font-weight:700;font-size:19px;padding:8px 18px;border-radius:24px;background:var(--gp);min-height:44px;line-height:28px}
+nav a:hover{background:#dcebcb}
+main{padding:10px 0 30px}
+section{padding-top:20px;margin-bottom:10px}
+h2{font-size:34px;color:var(--gdd);margin:30px 0 12px;font-weight:800;border-bottom:2px solid var(--gp);padding-bottom:8px}
+h3{font-size:25px;color:var(--ink);margin:28px 0 10px;font-weight:700}
+p{margin:10px 0}
+ol,ul{padding-right:28px;margin:10px 0}
+li{margin:8px 0}
+.ltr{direction:ltr;unicode-bidi:isolate;font-family:Consolas,monospace;font-size:19px;background:#f4f6f8;border:1px solid #e3e8ee;border-radius:4px;padding:2px 10px;display:inline-block}
+.free{background:#eef6ff;border:1px solid #cddff3;border-right:7px solid #3b7bbf;border-radius:10px;padding:16px 22px;margin:20px 0;font-size:21px}
+.copy{background:var(--gt);border:1.5px solid var(--line);border-right:7px solid var(--g);border-radius:10px;padding:16px 20px;margin:14px 0}
+.copy label{display:block;font-size:17px;font-weight:700;color:var(--gdd);margin-bottom:8px}
+.copy textarea{width:100%;font-family:'Heebo',Arial,sans-serif;font-size:21px;line-height:1.75;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:8px;padding:14px 16px;resize:vertical;direction:rtl;overflow:hidden;min-height:60px}
+.copy .btns{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.cbtn,.rbtn{font-family:inherit;font-size:18px;font-weight:700;border:0;border-radius:22px;padding:8px 22px;min-height:44px;cursor:pointer}
+.cbtn{color:#fff;background:var(--gdd)}
+.cbtn:hover{background:#2f5414}
+.cbtn.done{background:var(--red)}
+.rbtn{color:var(--gdd);background:#fff;border:1.5px solid var(--g)}
+.tip{background:#fff8e6;border:1px solid #f0dfae;border-right:7px solid #d4a017;border-radius:10px;padding:14px 20px;margin:14px 0}
+.warn{background:#fbf1f1;border:1px solid #efd3d3;border-right:7px solid var(--red);border-radius:10px;padding:14px 20px;margin:14px 0}
+.ideas{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;list-style:none;padding:0;margin:14px 0}
+.ideas li{background:#fff;border:2px solid var(--line);border-top:5px solid var(--g);border-radius:10px;padding:16px 18px;margin:0}
+.ideas li:nth-child(3n+2){border-top-color:var(--gd)}
+.ideas li:nth-child(3n){border-top-color:var(--red)}
+.ideas b{display:block;font-size:22px;color:var(--gdd);margin-bottom:4px}
+.ideas span{font-size:19px;line-height:1.6}
+.fixes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:14px 0}
+.fixes div{background:#fbf1f1;border-right:6px solid var(--red);border-radius:10px;padding:14px 18px;font-size:19px}
+.fixes b{display:block;color:var(--red);font-size:21px}
+table{border-collapse:collapse;width:100%;font-size:20px}
+th{background:var(--gdd);color:#fff;text-align:right;padding:12px 14px}
+td{border-bottom:1px solid var(--line);padding:12px 14px;vertical-align:top}
+.table-scroll-wrapper{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1rem 0;border-radius:8px}
+.fields{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:12px 0}
+.fields div{background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;font-size:19px}
+.fields div b{display:block;color:var(--gdd);font-size:20px}
+.fields .main{border:2.5px solid var(--red)}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+footer{background:var(--gt);border-top:3px solid var(--g);padding:26px 0 44px;margin-top:34px}
+.accessibility-statement{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1.2rem 1.6rem;max-width:900px;margin:0 auto}
+.accessibility-statement h2{font-size:24px;margin-top:0}
+#live{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+@media (max-width:1024px){ body{font-size:19px} .wrap{padding:0 28px} h1{font-size:34px} h2{font-size:29px} .ideas{grid-template-columns:repeat(2,1fr)} .fields{grid-template-columns:repeat(2,1fr)} .cols2{grid-template-columns:1fr} .fixes{grid-template-columns:1fr} }
+@media (max-width:768px){ nav{position:static} body{font-size:18px} h1{font-size:28px} h2{font-size:25px} h3{font-size:21px} header img{width:130px} .copy textarea{font-size:18px} }
+@media (max-width:480px){ .wrap{padding:0 14px} header .wrap{flex-direction:column-reverse;align-items:flex-start;gap:10px} header img{margin-right:0} h1{font-size:24px} .ideas{grid-template-columns:1fr} .fields{grid-template-columns:1fr} nav a{font-size:16px;padding:8px 12px} }
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+
+<header>
+  <div class="wrap">
+    <div class="ht">
+      <h1>הנחיות לתרגול: ג'מיני כסביבת עבודה</h1>
+      <p class="sub">סדנה 1 מתוך 3 לסגל האקדמי &middot; המכללה האקדמית צפת &middot; 4.10.2026</p>
+    </div>
+    <img src="logo.png" alt="תום הגלעדי - הלוגו">
+  </div>
+</header>
+
+<nav aria-label="תוכן הדף">
+  <div class="wrap">
+    <ul>
+      <li><a href="#start">לפני שמתחילים</a></li>
+      <li><a href="#canvas">קנבס</a></li>
+      <li><a href="#notebook">נוטבוק</a></li>
+      <li><a href="#gem">ג'ם</a></li>
+      <li><a href="#skills">ג'מס וסקילים</a></li>
+      <li><a href="#tools">בחירת כלי</a></li>
+      <li><a href="#privacy">פרטיות וסודיות</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main-content">
+<div class="wrap">
+
+<p class="free"><b>חשוב לדעת:</b> הפרומפטים כאן הם הצעה בלבד, למי שאין לו או לה רעיון מה לבנות. אפשר להשתמש בהם כמו שהם, לערוך אותם כאן בדף לפני ההעתקה, או לוותר עליהם לגמרי ולבנות כל דבר אחר.</p>
+
+<section id="start" aria-labelledby="h-start">
+  <h2 id="h-start">לפני שמתחילים</h2>
+  <ol>
+    <li>להיכנס לג'מיני:
+      <span class="ltr" lang="en">gemini.google.com</span></li>
+    <li>להתחבר עם <b>חשבון גוגל</b>, ולוודא שהוא מופיע בתמונת הפרופיל שבפינה.</li>
+    <li>לבחור בבורר המודלים שליד שורת הכתיבה את <b>המודל המתקדם</b>, לא את המהיר.</li>
+    <li>ללחוץ על <b>הפלוס</b> בשורת הכתיבה, ובתפריט שנפתח לבחור
+      <b lang="en">Canvas</b>.</li>
+  </ol>
+  <div class="fixes">
+    <div><b>אין חשבון גוגל?</b>פותחים חשבון בשתי דקות, או עוקבים אחרי המסך בזום ומתרגלים אחר כך.</div>
+    <div><b>עובדים מהטלפון?</b>אפשר, אבל קנבס וג'ם נוחים הרבה יותר במחשב.</div>
+    <div><b>ג'מיני עונה באנגלית?</b>כותבים לו: "ענה בעברית".</div>
+  </div>
+  <p class="tip"><b>טיפ:</b> אם תשובה מתעכבת יותר מדקה, אפשר לעבור למודל המהיר ולנסות שוב.</p>
+</section>
+
+<section id="canvas" aria-labelledby="h-canvas">
+  <h2 id="h-canvas">קנבס: טיוטה על הקורס שלכם/ן</h2>
+  <p><b>בונים/ות מה שרוצים/ות.</b> אם צריך נקודת פתיחה, התבנית מתאימה לכל רעיון: להחליף את מה שבסוגריים המרובעים, ממש כאן בתיבה.</p>
+
+  <h3>שלב 1: לצרף את הסילבוס ולהדביק את הפרומפט</h3>
+  <p>בשורת הכתיבה: הפלוס &larr; העלאת קבצים &larr; הסילבוס. אחר כך שוב הפלוס, ולבחור
+    <span lang="en">Canvas</span>.</p>
+  <div class="copy">
+    <label for="t-canvas">אפשר לערוך כאן לפני ההעתקה</label>
+<textarea id="t-canvas" rows="4">אני מרצה בקורס [שם הקורס], לסטודנטים ולסטודנטיות בשנה [שנה]. מצורף הסילבוס.
+אני רוצה [מה: מטלה לשבוע..., מתווה לשיעור על..., שאלות לדיון על...].
+[דרישות, למשל: בודקת הבנה ויישום ולא שינון, היקף, מחוון קצר.]
+כתוב את זה בקנבס. אחרי זה נשפר יחד.</textarea>
+    <div class="btns"><button type="button" class="cbtn" data-copy="t-canvas">העתק</button><button type="button" class="rbtn" data-reset="t-canvas">החזרת הנוסח המקורי</button></div>
+  </div>
+
+  <h3>שלב 2: לשפר יחד</h3>
+  <ul>
+    <li><b>לשנות רק חלק:</b> לסמן בעכבר קטע בחלון הקנבס, ולכתוב מה לשנות בו. שאר המסמך נשאר כמו שהוא.</li>
+    <li><b>אורך וטון:</b> בכפתורים שבחלון הקנבס - שינוי האורך (קצר יותר או ארוך יותר) ושינוי הטון (רשמי יותר או פחות).</li>
+    <li><b>לערוך בעצמכם/ן:</b> אפשר להקליד ישירות בחלון הקנבס. השינויים נשמרים לבד.</li>
+  </ul>
+
+  <h3>שלב 3: לייצא למסמך גוגל</h3>
+  <p>בראש חלון הקנבס יש כפתור לשיתוף ולייצוא. משם בוחרים ייצוא למסמכי גוגל, וממשיכים לעבוד במסמך כרגיל.</p>
+
+  <h3>רעיונות, אם צריך נקודת פתיחה</h3>
+  <ul class="ideas">
+    <li><b>מטלה לשבוע מסוים</b><span>מטלה שבודקת הבנה ויישום, ולא שינון: הנחיות לסטודנטים ולסטודנטיות, היקף, ומחוון קצר.</span></li>
+    <li><b>מתווה לשיעור אחד</b><span>פתיחה, חלקי השיעור עם זמנים, פעילות אחת שבה הסטודנטים והסטודנטיות עושים משהו, וסיכום.</span></li>
+    <li><b>עדכון של מצגת קיימת</b><span>לצרף את המצגת כקובץ
+      <span lang="en">PDF</span>,
+      ולבקש: לעדכן דוגמאות, לקצר, או להוסיף שאלה לדיון בכל חלק.</span></li>
+    <li><b>שאלות לדיון בכיתה</b><span>שאלות פתוחות על נושא השבוע, מהקלה לקשה, כאלה שמחברות את החומר לשדה או מעוררות מחלוקת.</span></li>
+    <li><b>מחוון למטלה קיימת</b><span>להדביק מטלה שכבר יש, ולבקש מחוון: קריטריונים, רמות ביצוע, ומשקל לכל קריטריון.</span></li>
+  </ul>
+</section>
+
+<section id="notebook" aria-labelledby="h-notebook">
+  <h2 id="h-notebook">נוטבוק: פרויקט שזוכר</h2>
+  <p>נוטבוק הוא מקום אחד לקורס: <b>מקורות</b>, <b>הנחיות קבועות</b>, וכל <b>השיחות</b> על הקורס. ג'מיני זוכר את כל אלה בכל שיחה חדשה בתוך הנוטבוק.</p>
+  <ol>
+    <li>לפתוח את תפריט הצד של ג'מיני.</li>
+    <li>ליצור נוטבוק חדש, ולתת לו שם (למשל, שם הקורס).</li>
+    <li>להוסיף מקורות: קבצים מהמחשב, קבצים מהדרייב, קישורים או טקסט מודבק.</li>
+    <li>לכתוב הנחיות קבועות, למשל: "ענה בעברית, ברמה של שנה א', ותמיד הפנה לעמוד במקור."</li>
+  </ol>
+  <p>הנוטבוק מסונכרן עם נוטבוק אל-אם: מקור או הנחיה שמוסיפים במקום אחד, מופיעים גם בשני.</p>
+  <p class="tip"><b>לא רואים את האפשרות בתפריט הצד?</b> נוטבוקים בג'מיני הושקו במנויים בתשלום. זה בסדר - ג'ם פתוח לכולם.</p>
+</section>
+
+<section id="gem" aria-labelledby="h-gem">
+  <h2 id="h-gem">ג'ם: עוזר שמכיר את הקורס</h2>
+  <p><b>בונים/ות מה שרוצים/ות.</b> אם צריך נקודת פתיחה, התבנית מתאימה לכל רעיון.</p>
+
+  <h3>שלב 1: לפתוח ג'ם חדש</h3>
+  <p>בתפריט הצד של ג'מיני ללחוץ על
+    <span lang="en">Gems</span>,
+    ואז על יצירת ג'ם חדש. אלה השדות במסך שנפתח:</p>
+  <div class="fields">
+    <div><b>שם</b>השם שמופיע בראש הבוט.</div>
+    <div><b>תיאור</b>גלוי גם הוא, ופונה ישירות למשתמשים ולמשתמשות.</div>
+    <div class="main"><b>פרומפט בסיס</b>הכי חשוב: מי הבוט, מה התפקיד שלו, ואיך הוא מתנהג.</div>
+    <div><b>כלי ברירת המחדל</b>כלי שנפתח אוטומטית, למשל קנבס. אפשר להשאיר ריק.</div>
+    <div><b>ידע</b>המסמכים שהבוט קורא.</div>
+  </div>
+
+  <h3>שלב 2: לכתוב פרומפט בסיס</h3>
+  <div class="copy">
+    <label for="t-gem">אפשר לערוך כאן לפני ההעתקה</label>
+<textarea id="t-gem" rows="6">אתה [תפקיד הבוט] של [למי: סטודנטים וסטודנטיות בשנה... / אני, המרצה] בקורס [שם הקורס].
+המטרה שלך: [מה הבוט עוזר להשיג].
+איך אתה מתנהג: [למשל: שואל לפני שעונה, נותן רמזים ולא פתרונות, נותן משוב לפי מחוון].
+[אם רוצים: ענה רק מתוך המקורות שבידע, ואמור כשהתשובה לא נמצאת בהם.]
+אם השיחה סוטה מהנושא, החזר אותה בעדינות לנושא.
+כתוב בעברית, בקצרה ובחום.</textarea>
+    <div class="btns"><button type="button" class="cbtn" data-copy="t-gem">העתק</button><button type="button" class="rbtn" data-reset="t-gem">החזרת הנוסח המקורי</button></div>
+  </div>
+  <p>אחרי ההדבקה ללחוץ על <b>סמל העט עם הניצוצות</b> שבתוך תיבת פרומפט הבסיס. הוא יהפוך את המשפטים להוראות מלאות. <b>מה שהוא כתב הוא טיוטה</b> - לקרוא ולדייק.</p>
+  <p class="tip"><b>מה עושה ג'ם טוב?</b> שואל לפני שהוא עונה. ג'ם שמתחיל בשאלה אחת או שתיים על המצב של מי שמולו, נותן תשובה מדויקת יותר מג'ם שעונה מיד.</p>
+
+  <h3>שלב 3: להוסיף מקורות</h3>
+  <ul>
+    <li><b>קבצים:</b> סילבוס, מאמרי חובה, מצגות, מטלות. עד עשרה קבצים.</li>
+    <li><b>מחברת של נוטבוק אל-אם:</b> אפשר לחבר מחברת שלמה כמקור. כל מקורות הקורס במקום אחד, והבוט נשען על כולם.</li>
+    <li><b>ברירת המחדל:</b> הבוט משתמש בקבצים ומצטט מהם, אבל הוא לא מוגבל אליהם.</li>
+    <li><b>"ענה רק מתוך המקורות":</b> ההנחיה הזו בפרומפט הבסיס (השורה האופציונלית בתבנית) משפרת את הסיכוי, אבל לא מבטיחה. הבוט עדיין עלול להשלים מהידע הכללי שלו, או לטעות. לכן חשוב לבדוק.</li>
+    <li><b>טיפ:</b> מסמך גוגל או קובץ טקסט עדיפים על קובץ
+      <span lang="en">PDF</span>
+      בעברית, שלפעמים נקרא עם אותיות הפוכות.</li>
+  </ul>
+  <p class="warn"><b>חשוב:</b> מי שמקבל את הבוט רואה גם את פרומפט הבסיס ואת קובצי הידע. לא לשים שם שום דבר חסוי.</p>
+
+  <h3>שלב 4: לבדוק ולתקן</h3>
+  <p>בחלון התצוגה המקדימה לנסות לשבור את הבוט. למשל, לשאול אותו שאלה שלא קשורה לקורס, ולבדוק שהוא מחזיר בעדינות לנושא. לדייק את פרומפט הבסיס, ולבדוק שוב.</p>
+
+  <h3>שלב 5: לשתף</h3>
+  <p>שיתוף &larr; כל מי שיש לו קישור &larr; <b>הרשאת צפייה</b> &larr; להעתיק את הקישור. כך הסטודנטים והסטודנטיות יכולים לדבר עם הבוט, אבל לא לערוך אותו.
+  <br>בחשבון של מוסד, אפשרויות השיתוף תלויות בהגדרות של המוסד.</p>
+
+  <h3>רעיונות, אם צריך נקודת פתיחה</h3>
+  <ul class="ideas">
+    <li><b>מלווה סוקרטי לחומר הקורס</b><span>לסטודנטים ולסטודנטיות. עוזר להבין את החומר בלי לתת תשובות: שואל שאלה מכוונת, נותן רמז, ומחלץ את ההבנה מתוך השיחה.</span></li>
+    <li><b>עוזר הכנה לשיעור הבא</b><span>לסטודנטים ולסטודנטיות. לפני השיעור: מסכם בקצרה את הקריאה לשבוע, ושואל שתיים או שלוש שאלות שמכינות לדיון בכיתה.</span></li>
+    <li><b>מתרגל לקראת מבחן</b><span>לסטודנטים ולסטודנטיות. שואל שאלות בסגנון המבחן מתוך חומרי הקורס, אחת בכל פעם, נותן משוב על כל תשובה, וחוזר על מה שעוד לא ברור.</span></li>
+    <li><b>עוזר לבניית מטלות ומחוונים</b><span>למרצה. אחרי תיאור של נושא ומטרות למידה, הבוט מציע מטלה ושאלות שבודקות הבנה ויישום, ולא שינון, יחד עם מחוון.</span></li>
+    <li><b>מלווה לכתיבת עבודה, שלב אחרי שלב</b><span>לסטודנטים ולסטודנטיות. מלווה מבחירת הנושא והשאלה, דרך מבנה העבודה, ועד בדיקה עצמית לפני הגשה. לא כותב במקומם.</span></li>
+    <li><b>מסביר מושגים מתוך מאמרי הקורס</b><span>לסטודנטים ולסטודנטיות. עונה על שאלות על מושגים מתוך המאמרים שבידע, ומפנה למקום במאמר שבו המושג מופיע.</span></li>
+    <li><b>ג'ם שמייצר פעילות מתוך סיכום שיעור</b><span>למרצה. מדביקים סיכום של שיעור, או כמה נקודות ממנו, והג'ם מציע פעילות לשיעור הבא: שאלה לדיון, תרגיל קצר או חידון פתיחה.</span></li>
+  </ul>
+</section>
+
+<section id="skills" aria-labelledby="h-skills">
+  <h2 id="h-skills">ג'מס וסקילים: מה כדאי לדעת</h2>
+  <p>גוגל מחליפה את הג'מס ב"סקילים": הנחיות קבועות שמפעילים בתוך כל שיחה, בהקלדת לוכסן ושם הסקיל. המעבר אוטומטי, יחד עם הקבצים, ומועד המעבר תלוי בסוג החשבון:</p>
+  <table>
+    <thead><tr><th scope="col">סוג החשבון</th><th scope="col">מועד המעבר לסקילים</th></tr></thead>
+    <tbody>
+      <tr><td>חשבון גוגל אישי</td><td>נובמבר 2026</td></tr>
+      <tr><td>חשבון עבודה של גוגל</td><td>מרץ 2027</td></tr>
+      <tr><td>חשבון חינוך</td><td>יוני 2027</td></tr>
+    </tbody>
+  </table>
+  <p>מה שנבנה היום לא הולך לפח. ולבוט שנשלח לסטודנטים ולסטודנטיות, הג'ם הוא עדיין הדרך: שיתוף של סקילים עוד לא זמין.</p>
+</section>
+
+<section id="tools" aria-labelledby="h-tools">
+  <h2 id="h-tools">איך בוחרים כלי</h2>
+  <table>
+    <thead><tr><th scope="col">אם רוב העבודה שלכם/ן...</th><th scope="col">כדאי להתחיל עם</th></tr></thead>
+    <tbody>
+      <tr><td>בתוך גוגל: דרייב, מסמכים, ג'ימייל</td><td>ג'מיני</td></tr>
+      <tr><td>כתיבה ארוכה, ועבודה עם מסמכים ארוכים</td><td>קלוד</td></tr>
+      <tr><td>שימוש כללי, תמונות, שיחה קולית</td><td>צ'אט ג'יפיטי</td></tr>
+    </tbody>
+  </table>
+  <h3>מה המכללה מממנת</h3>
+  <ul>
+    <li><b>סגל בכיר:</b> עד שלושה כלים בשנה, לבחירתכם/ן, מתקציב המחקר (חשבונית והחזר).</li>
+    <li><b>סגל זוטר:</b> כלי אחד בתשלום.</li>
+    <li><b>טיפ:</b> חודש ניסיון לפני מנוי שנתי. מתחילים בכלי אחד ומעמיקים בו, ומנוי שני - כשיודעים בשביל מה.</li>
+  </ul>
+</section>
+
+<section id="privacy" aria-labelledby="h-privacy">
+  <h2 id="h-privacy">פרטיות וסודיות: מה מותר?</h2>
+  <ul>
+    <li><b>ההנחיות הן מוסדיות.</b> מה מותר תלוי בחבילה שהמוסד רכש, ובמה שהמכללה אישרה. כדאי לבדוק לפני שמעלים חומרי קורס.</li>
+    <li><b>מידע על סטודנטים וסטודנטיות:</b> רק בחשבון מוסדי, ורק אם המוסד אישר אותו לכך.</li>
+    <li><b>בחשבון פרטי:</b> לא מעלים שמות, ציונים או כל פרט מזהה. תרחישים לתרגול - בדיוניים, או מעובדים כך שאי אפשר לזהות.</li>
+  </ul>
+</section>
+
+<section id="contact" aria-labelledby="h-contact">
+  <h2 id="h-contact">יצירת קשר</h2>
+  <p>תום הגלעדי &middot; <a href="mailto:tomhagiladi@gmail.com">tomhagiladi@gmail.com</a> &middot; <a href="https://www.tomhagiladi.com/">האתר של תום הגלעדי</a></p>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="accessibility-statement" id="accessibility">
+      <h2>הצהרת נגישות</h2>
+      <p>אתר זה עומד בדרישות תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג-2013, ותקן ישראלי ת"י 5568 המבוסס על הנחיות
+      <span lang="en" dir="ltr">WCAG 2.0</span>
+      ברמה AA.</p>
+      <p>אם נתקלתם/ן בבעיית נגישות באתר, אנא פנו אלינו ונשמח לסייע:</p>
+      <p><strong>רכז נגישות:</strong> תום הגלעדי<br>
+      <strong>אימייל:</strong> <a href="mailto:tomhagiladi@gmail.com">tomhagiladi@gmail.com</a></p>
+    </div>
+  </div>
+</footer>
+
+<div id="live" aria-live="polite"></div>
+<script>
+document.querySelectorAll('table').forEach(function(table){
+  var w=document.createElement('div');
+  w.className='table-scroll-wrapper'; w.setAttribute('tabindex','0'); w.setAttribute('role','region'); w.setAttribute('aria-label','טבלה נגללת');
+  table.parentNode.insertBefore(w,table); w.appendChild(table);
+});
+// editable prompts: grow with their text, remember the original for reset
+function grow(t){ t.style.height='auto'; t.style.height=(t.scrollHeight+4)+'px'; }
+document.querySelectorAll('.copy textarea').forEach(function(t){
+  t.dataset.original=t.value; grow(t);
+  t.addEventListener('input',function(){ grow(t); });
+});
+addEventListener('resize',function(){ document.querySelectorAll('.copy textarea').forEach(grow); });
+var live=document.getElementById('live');
+function copyText(text,btn){
+  function ok(){ btn.textContent='הועתק'; btn.classList.add('done'); live.textContent='הטקסט הועתק'; setTimeout(function(){btn.textContent='העתק';btn.classList.remove('done');},1800); }
+  function fallback(){ var ta=document.createElement('textarea'); ta.value=text; ta.setAttribute('readonly',''); ta.style.position='absolute'; ta.style.right='-9999px'; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy'); ok();}catch(e){} document.body.removeChild(ta); }
+  if(navigator.clipboard&&window.isSecureContext){ navigator.clipboard.writeText(text).then(ok,fallback); } else { fallback(); }
+}
+document.querySelectorAll('.cbtn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var el=document.getElementById(btn.getAttribute('data-copy'));
+    copyText(el.tagName==='TEXTAREA' ? el.value.trim() : el.innerText.trim(), btn);
+  });
+});
+document.querySelectorAll('.rbtn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var t=document.getElementById(btn.getAttribute('data-reset'));
+    t.value=t.dataset.original; grow(t); live.textContent='הנוסח המקורי הוחזר';
+  });
+});
+</script>
+</body>
+</html>
