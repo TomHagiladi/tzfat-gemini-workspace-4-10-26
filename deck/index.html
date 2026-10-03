@@ -20,7 +20,12 @@ b,strong{font-weight:700}
 .dim{color:var(--muted)}
 .kicker{font-size:17px;letter-spacing:3px;color:var(--gd);font-weight:700;margin-bottom:8px}
 .ws{display:inline-block;background:var(--red);color:#fff;border-radius:30px;padding:4px 18px;font-size:18px;font-weight:700;vertical-align:middle;margin-right:14px;letter-spacing:0}
-.ws.home{background:var(--gdd)}
+.practice{display:inline-flex;align-items:center;gap:12px;background:var(--red);color:#fff;font-size:30px;font-weight:800;border-radius:40px;padding:8px 30px 8px 26px;margin-bottom:12px;box-shadow:0 4px 14px rgba(175,36,42,.25)}
+.bio{display:flex;flex-direction:column;gap:12px;flex:1;justify-content:center}
+.bio .row{display:flex;align-items:center;gap:30px;min-height:92px}
+.bio .row p{flex:1;font-size:30px;font-weight:400;line-height:1.3}
+.bio .row .imgs{display:flex;gap:22px;align-items:center}
+.bio .row img{height:84px;object-fit:contain}
 ul{list-style:none}
 ul.dots li{position:relative;padding-right:38px;margin:12px 0}
 ul.dots li:before{content:"";position:absolute;right:4px;top:15px;width:13px;height:13px;border:3px solid var(--g);transform:rotate(24deg);border-radius:2px}
@@ -107,6 +112,8 @@ ul.nums li:before{content:counter(k);position:absolute;right:0;top:2px;width:30p
 /* canvas: what you make there */
 .make{display:flex;flex-direction:column;gap:14px;width:100%}
 .make .card{display:flex;gap:20px;align-items:center;padding:18px 24px}
+.make .card.later{background:#fafafa}
+.make .card.later h4{color:var(--muted)}
 .make h4{font-size:28px;margin:0}
 .make p{font-size:21px}
 /* tool cards */
@@ -281,19 +288,18 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
 <section class="slide">
   <img src="assets/logo.png" class="logo" alt="">
   <h2>קצת עליי</h2>
-  <ul class="dots" style="max-width:1080px">
-    <li class="f" style="font-size:25px;margin:9px 0">עשרים שנה כאיש חינוך, חלקן בניהול מערכות חינוך: הקמה וניהול בית ספר, סגן מנהל פסג"ה תל אביב-יפו, אחראי פן חברתי-רגשי במדעני העתיד</li>
-    <li class="f" style="font-size:25px;margin:9px 0">שלוש השנים האחרונות: רק הממשק שבין בינה מלאכותית לארגוני למידה והוראה - משרד החינוך, האקדמיה, וליווי התייעלות במגזר העסקי</li>
-    <li class="f" style="font-size:25px;margin:9px 0">מנחה הפודקאסט "דיבורי בינה", מנהל קהילת "בינה מלאכותית בחינוך ובאקדמיה" בפייסבוק, וכותב יחד עם פרופ' אמנון גלסנר את הספר "אהבת למידה וחדוות גילוי"</li>
-    <li class="f" style="font-size:25px;margin:9px 0">מלווה את הסגל של <b>המכללה האקדמית צפת</b> מאז 2024</li>
-  </ul>
-  <div class="logos">
-    <img src="assets/bio/shorashim.webp" style="height:100px" alt="בית ספר שורשים">
-    <img src="assets/bio/pisga.png" style="height:96px" alt="מרכז פסגה תל אביב-יפו">
-    <img src="assets/bio/madanei.jpg" style="height:118px" alt="מרכז מדעני העתיד">
-    <img src="assets/bio/podcast.jpg" style="height:118px" alt="הפודקאסט דיבורי בינה">
-    <img src="assets/bio/book.png" style="height:156px" alt="הספר אהבת למידה וחדוות גילוי">
-    <img src="assets/bio/community.png" style="height:118px" alt="קהילת בינה מלאכותית בחינוך ובאקדמיה">
+  <div class="bio">
+    <div class="row f"><p>20 שנה בחינוך: ניהול בית ספר, פסג"ה, מדעני העתיד</p><div class="imgs">
+      <img src="assets/bio/shorashim.webp" alt="בית ספר שורשים">
+      <img src="assets/bio/pisga.png" alt="מרכז פסגה תל אביב-יפו">
+      <img src="assets/bio/madanei.jpg" alt="מרכז מדעני העתיד"></div></div>
+    <div class="row f"><p>שלוש השנים האחרונות: רק בינה מלאכותית בלמידה ובהוראה</p></div>
+    <div class="row f"><p>הפודקאסט "דיבורי בינה", וקהילת בינה מלאכותית בחינוך</p><div class="imgs">
+      <img src="assets/bio/podcast.jpg" alt="הפודקאסט דיבורי בינה">
+      <img src="assets/bio/community.png" alt="קהילת בינה מלאכותית בחינוך ובאקדמיה"></div></div>
+    <div class="row f"><p>הספר "אהבת למידה וחדוות גילוי", עם פרופ' אמנון גלסנר</p><div class="imgs">
+      <img src="assets/bio/book.png" style="height:104px" alt="הספר אהבת למידה וחדוות גילוי"></div></div>
+    <div class="row f"><p>מלווה את הסגל של <b>המכללה האקדמית צפת</b> מאז 2024</p></div>
   </div>
 </section>
 
@@ -321,23 +327,6 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
     <span class="hotlabel">סיכום</span>
   </div>
   <p class="closing f">על השולחן: מחשב, חשבון גוגל, סילבוס, ומטלה או מצגת מהקורס.</p>
-</section>
-
-<!-- 4 נכנסים לג'מיני -->
-<section class="slide spread">
-  <img src="assets/logo.png" class="logo" alt="">
-  <h2>לפני שמתחילים: נכנסים לג'מיני<span class="ws">נתרגל בסדנה</span></h2>
-  <ol class="steps">
-    <li class="f">להיכנס לג'מיני:
-      <span class="url">gemini.google.com</span></li>
-    <li class="f">להתחבר עם <b>חשבון גוגל</b>, ולוודא שהוא מופיע בתמונת הפרופיל.</li>
-  </ol>
-  <div class="fix f">
-    <div><b>אין חשבון גוגל?</b>פותחים חשבון בשתי דקות, או עוקבים אחרי המסך שלי ומתרגלים אחר כך.</div>
-    <div><b>עובדים מהטלפון?</b>אפשר, אבל קנבס וג'ם נוחים הרבה יותר במחשב.</div>
-    <div><b>ג'מיני עונה באנגלית?</b>כותבים לו: "ענה בעברית".</div>
-  </div>
-  <p class="closing red f">תקועים/ות? כתבו בצ'אט. אפשר גם בהמשך ובכל שלב בסדנה.</p>
 </section>
 
 <!-- 5 מעבר: היכרות -->
@@ -568,7 +557,7 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
 <!-- 12 יצירת תמונה ומוזיקה -->
 <section class="slide">
   <img src="assets/logo.png" class="logo" alt="">
-  <h2>יצירת תמונה ומוזיקה<span class="ws home">לנסות בבית</span></h2>
+  <h2>יצירת תמונה ומוזיקה</h2>
   <div class="split" style="align-items:center">
     <div class="tx" style="flex:.9">
       <ul class="dots">
@@ -646,6 +635,29 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
   </div>
 </section>
 
+<!-- תרגול: להתיידד עם התפריט -->
+<section class="slide spread">
+  <img src="assets/logo.png" class="logo" alt="">
+  <div><div class="practice"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8" fill="none" stroke="#fff" stroke-width="2.4"/><path d="M12 9v4l3 2M9 2h6" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>זמן תרגול</div>
+  <h2>להתיידד עם התפריט</h2></div>
+  <ol class="steps">
+    <li class="f" style="margin:10px 0">להיכנס ל-<!--
+      --><span class="url">gemini.google.com</span>,
+      ולהתחבר עם <b>חשבון גוגל</b>.</li>
+    <li class="f" style="margin:10px 0">לבחור <b>משהו אחד שלא הכרתם/ן</b>, ולנסות אותו:</li>
+  </ol>
+  <div class="cloud" style="margin-top:0">
+    <span class="chip f">תמונה בסגנון מוכן</span>
+    <span class="chip f">שיר קצר על נושא מהקורס</span>
+    <span class="chip f">מחקר עומק על שאלה מהתחום</span>
+    <span class="chip f">למידה מותאמת אישית</span>
+    <span class="chip f">צילום של דף, עם שאלה עליו</span>
+    <span class="chip f">אותה שאלה, במודל אחר</span>
+  </div>
+  <p class="closing red f" style="margin-left:220px">תקועים/ות? כתבו בצ'אט.</p>
+  <div class="qr f"><img src="assets/qr-guide.png" alt="קוד QR להנחיות לתרגול"><span>הנחיות לתרגול</span></div>
+</section>
+
 <!-- 14 מעבר: קנבס -->
 <section class="slide sep" style="justify-content:center">
   <div class="logo-card"><img src="assets/logo.png" alt=""></div>
@@ -681,7 +693,7 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
         <div class="card f"><svg width="54" height="54" viewBox="0 0 64 64" aria-hidden="true"><rect x="12" y="6" width="40" height="52" rx="5" fill="none" stroke="#5E9A28" stroke-width="4"/><rect x="19" y="16" width="26" height="5" rx="2" fill="#75B743"/><rect x="19" y="27" width="26" height="4" rx="2" fill="#EDF5E4"/><rect x="19" y="36" width="18" height="4" rx="2" fill="#EDF5E4"/></svg><div><h4>מסמך</h4><p>מטלה, מתווה שיעור, דף הנחיות</p></div></div>
         <div class="card f"><svg width="54" height="54" viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="12" width="52" height="34" rx="4" fill="none" stroke="#5E9A28" stroke-width="4"/><rect x="14" y="20" width="20" height="5" rx="2" fill="#75B743"/><rect x="14" y="30" width="30" height="4" rx="2" fill="#EDF5E4"/><path d="M32 46v8M22 56h20" stroke="#5E9A28" stroke-width="4"/></svg><div><h4>מצגת</h4><p>שאפשר לייצא ל-<!--
           --><span lang="en">Google Slides</span></p></div></div>
-        <div class="card f" style="opacity:.75"><svg width="54" height="54" viewBox="0 0 64 64" aria-hidden="true"><rect x="16" y="4" width="32" height="56" rx="6" fill="none" stroke="#AF242A" stroke-width="4"/><rect x="22" y="14" width="20" height="8" rx="2" fill="#AF242A" opacity=".6"/><circle cx="32" cy="52" r="2.5" fill="#AF242A"/></svg><div><h4>אפליקציה</h4><p>על זה - במפגש של 8.10</p></div></div>
+        <div class="card later f"><svg width="54" height="54" viewBox="0 0 64 64" aria-hidden="true"><rect x="16" y="4" width="32" height="56" rx="6" fill="none" stroke="#AF242A" stroke-width="4"/><rect x="22" y="14" width="20" height="8" rx="2" fill="#AF242A" opacity=".6"/><circle cx="32" cy="52" r="2.5" fill="#AF242A"/></svg><div><h4>אפליקציה</h4><p>על זה - במפגש של 8.10</p></div></div>
       </div>
     </div>
   </div>
@@ -700,22 +712,6 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
   </div>
   <p class="note f">לפני השליחה: פלוס &larr; העלאת קבצים &larr; הסילבוס. ואז פלוס &larr;
     <span lang="en">Canvas</span>.</p>
-</section>
-
-<!-- 17 תורכם: מסמך בקנבס -->
-<section class="slide spread">
-  <img src="assets/logo.png" class="logo" alt="">
-  <h2>תורכם/ן: מסמך בקנבס<span class="ws">נתרגל בסדנה</span></h2>
-  <div><p class="lead"><b>בונים/ות מה שרוצים/ות,</b> על הקורס שלכם/ן. אם צריך נקודת פתיחה:</p>
-  <div class="cloud">
-    <span class="chip f">מטלה לשבוע מסוים</span>
-    <span class="chip f">מתווה לשיעור אחד</span>
-    <span class="chip f">שאלות לדיון בכיתה</span>
-    <span class="chip f">מחוון למטלה קיימת</span>
-    <span class="chip f">דף הנחיות לעבודה</span>
-  </div></div>
-  <p class="closing f" style="margin-left:220px">סיימתם/ן? <b>סימן וי בצ'אט.</b> התבנית לפרומפט - בהנחיות לתרגול.</p>
-  <div class="qr f"><img src="assets/qr-guide.png" alt="קוד QR להנחיות לתרגול"><span>הנחיות לתרגול</span></div>
 </section>
 
 <!-- 18 שיטת העבודה: הערות בשורת הפרומפט -->
@@ -788,6 +784,23 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
     </div>
   </div>
   <p class="closing f">טכניקות ליצירת מצגות טובות - במפגש הבא, ביום רביעי 7.10.</p>
+</section>
+
+<!-- 17 תורכם: מסמך בקנבס -->
+<section class="slide spread">
+  <img src="assets/logo.png" class="logo" alt="">
+  <div><div class="practice"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8" fill="none" stroke="#fff" stroke-width="2.4"/><path d="M12 9v4l3 2M9 2h6" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>זמן תרגול</div>
+  <h2>תורכם/ן: מסמך בקנבס</h2></div>
+  <div><p class="lead"><b>בונים/ות מה שרוצים/ות,</b> על הקורס שלכם/ן. אם צריך נקודת פתיחה:</p>
+  <div class="cloud">
+    <span class="chip f">מטלה לשבוע מסוים</span>
+    <span class="chip f">מתווה לשיעור אחד</span>
+    <span class="chip f">שאלות לדיון בכיתה</span>
+    <span class="chip f">מחוון למטלה קיימת</span>
+    <span class="chip f">דף הנחיות לעבודה</span>
+  </div></div>
+  <p class="closing f" style="margin-left:220px">סיימתם/ן? <b>סימן וי בצ'אט.</b> התבנית לפרומפט - בהנחיות לתרגול.</p>
+  <div class="qr f"><img src="assets/qr-guide.png" alt="קוד QR להנחיות לתרגול"><span>הנחיות לתרגול</span></div>
 </section>
 
 <!-- 21 הפסקה + טיימר -->
@@ -974,7 +987,8 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
 <!-- 29 תורכם: ג'ם -->
 <section class="slide spread">
   <img src="assets/logo.png" class="logo" alt="">
-  <h2>תורכם/ן: ג'ם אישי לקורס שלכם/ן<span class="ws">נתרגל בסדנה</span></h2>
+  <div><div class="practice"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8" fill="none" stroke="#fff" stroke-width="2.4"/><path d="M12 9v4l3 2M9 2h6" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>זמן תרגול</div>
+  <h2>תורכם/ן: ג'ם אישי לקורס שלכם/ן</h2></div>
   <div><p class="lead"><b>בונים/ות מה שרוצים/ות.</b> כמה רעיונות, אם צריך נקודת פתיחה:</p>
   <div class="cloud">
     <span class="chip f">מלווה סוקרטי לחומר הקורס</span>
@@ -1119,7 +1133,8 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
 <!-- 35 תורכם: נוטבוק -->
 <section class="slide spread">
   <img src="assets/logo.png" class="logo" alt="">
-  <h2>תורכם/ן: נוטבוק לקורס<span class="ws">נתרגל בסדנה</span></h2>
+  <div><div class="practice"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8" fill="none" stroke="#fff" stroke-width="2.4"/><path d="M12 9v4l3 2M9 2h6" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>זמן תרגול</div>
+  <h2>תורכם/ן: נוטבוק לקורס</h2></div>
   <p class="f" style="font-size:26px">נכנסים ל-<!--
     --><span class="url">notebook.google.com</span>,
     ואז:</p>
