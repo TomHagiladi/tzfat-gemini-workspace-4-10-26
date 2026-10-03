@@ -20,9 +20,13 @@ b,strong{font-weight:700}
 .dim{color:var(--muted)}
 .kicker{font-size:17px;letter-spacing:3px;color:var(--gd);font-weight:700;margin-bottom:8px}
 .ws{display:inline-block;background:var(--red);color:#fff;border-radius:30px;padding:4px 18px;font-size:18px;font-weight:700;vertical-align:middle;margin-right:14px;letter-spacing:0}
+.ws.home{background:var(--gdd)}
 ul{list-style:none}
 ul.dots li{position:relative;padding-right:38px;margin:12px 0}
 ul.dots li:before{content:"";position:absolute;right:4px;top:15px;width:13px;height:13px;border:3px solid var(--g);transform:rotate(24deg);border-radius:2px}
+ul.nums{counter-reset:k}
+ul.nums li{counter-increment:k;position:relative;padding-right:44px;margin:9px 0;font-size:23px;line-height:1.4}
+ul.nums li:before{content:counter(k);position:absolute;right:0;top:2px;width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center}
 .cols{display:flex;gap:24px}
 .card{flex:1;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:26px 30px;box-shadow:0 2px 0 rgba(94,154,40,.08)}
 .card h4{font-size:32px;font-weight:800;color:var(--gd);margin-bottom:8px;line-height:1.25}
@@ -40,74 +44,118 @@ ul.dots li:before{content:"";position:absolute;right:4px;top:15px;width:13px;hei
 .prompt p{font-size:28px;line-height:1.6}
 .prompt .ph{color:var(--red);font-weight:500}
 .note{background:var(--gt);border-radius:8px;padding:14px 22px;font-size:24px;line-height:1.45;border-right:6px solid var(--red)}
-table{border-collapse:collapse;width:100%}
-th{background:var(--g);color:#fff;font-weight:700;padding:14px 20px;text-align:right;font-size:26px}
-th:first-child{background:var(--gd)}
-td{padding:18px 20px;border-bottom:1px solid var(--line);font-size:26px;line-height:1.4;background:#fff;vertical-align:top}
-tbody tr:nth-child(even) td{background:var(--gt)}
 .logo{position:absolute;top:34px;left:60px;width:150px}
 .qr{position:absolute;left:60px;bottom:44px;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:10px 10px 8px;text-align:center;width:180px}
 .qr img{width:150px;display:block;margin:0 auto}
 .qr span{display:block;font-size:16px;font-weight:700;color:var(--gdd);margin-top:4px}
+.hotlabel{display:inline-block;background:var(--gp);color:var(--gdd);font-weight:700;font-size:22px;border-radius:20px;padding:6px 18px}
 /* idea cloud */
 .cloud{display:flex;flex-wrap:wrap;gap:16px 16px;margin-top:20px;max-width:1000px}
 .chip{background:#fff;border:2.5px solid var(--g);border-radius:40px;padding:11px 26px;font-size:27px;font-weight:500;color:var(--ink)}
 .chip:nth-child(3n+2){border-color:var(--gd);background:var(--gt)}
 .chip:nth-child(3n){border-color:var(--red)}
-.hotlabel{display:inline-block;background:var(--gp);color:var(--gdd);font-weight:700;font-size:22px;border-radius:20px;padding:6px 18px}
-/* building: four floors, read bottom to top */
-.bld{display:flex;flex-direction:column-reverse;gap:10px;width:540px}
-.bld .fl{display:flex;align-items:center;gap:18px;background:#fff;border:2.5px solid var(--g);border-radius:10px;padding:12px 20px}
-.bld .fl .n{flex:0 0 48px;width:48px;height:48px;border-radius:8px;background:var(--gp);color:var(--gdd);font-weight:800;font-size:25px;display:flex;align-items:center;justify-content:center}
-.bld .fl b{display:block;font-size:30px;font-weight:800;color:var(--gd);line-height:1.15}
-.bld .fl span{display:block;font-size:21px;line-height:1.35;color:var(--muted)}
-.bld .fl.top{background:var(--gd);border-color:var(--gd)}
-.bld .fl.top b,.bld .fl.top span{color:#fff}
-.bld .fl.top .n{background:#fff;color:var(--gd)}
-.roof{width:0;height:0;border-left:270px solid transparent;border-right:270px solid transparent;border-bottom:54px solid var(--gd);margin-bottom:-2px}
-/* mini building (title + separator) */
+/* mini building (title + separators) */
 .mb{display:flex;flex-direction:column-reverse;gap:10px;width:360px}
 .mb .fl{height:64px;border-radius:10px;border:2.5px solid var(--g);background:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:var(--gd)}
 .mb .fl.act{background:var(--gd);border-color:var(--gd);color:#fff}
-.mb .roof{border-left-width:180px;border-right-width:180px;border-bottom-width:52px}
+.roof{width:0;height:0;border-left:180px solid transparent;border-right:180px solid transparent;border-bottom:52px solid var(--gd);margin-bottom:-2px}
 .slide.sep .mb .fl{background:rgba(255,255,255,.9);border-color:#fff;color:var(--gdd)}
 .slide.sep .mb .fl.act{background:var(--red);border-color:#fff;color:#fff}
-.slide.sep .mb .roof{border-bottom-color:#fff}
-/* gemini mock (as in the real interface) */
-.gm{width:500px}
-.gm .bar{background:#fff;border:1.5px solid #dfe3e8;border-radius:30px;height:62px;display:flex;align-items:center;padding:0 18px;gap:12px;box-shadow:0 8px 26px rgba(0,0,0,.08)}
-.gm .plus{width:34px;height:34px;border-radius:50%;background:#eef1f4;display:flex;align-items:center;justify-content:center;font-size:24px;color:#333;font-weight:300;border:2.5px solid var(--red)}
-.gm .ph{font-size:19px;color:#8a8f98}
-.gm .model{margin-right:auto;font-size:18px;color:#333}
-.gm .menu{margin-top:8px;margin-right:0;width:250px;background:#fff;border:1.5px solid #e3e6ea;border-radius:16px;padding:8px 6px;box-shadow:0 10px 26px rgba(0,0,0,.1)}
-.gm .mi{font-size:17px;color:#333;padding:5px 14px;border-radius:8px}
-.gm .mi .ch{float:left}
-.gm .mi.on{border:2.5px solid var(--red);color:var(--red);font-weight:700;background:#fff6f6}
-.gm .sep{height:1px;background:#e7e9ec;margin:5px 8px}
-/* canvas mock: chat on the right, document on the left (Hebrew interface) */
-.cv{width:560px;height:340px;display:flex;border:1.5px solid #dfe3e8;border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.08);background:#fff;font-size:15px;color:#444}
-.cv .chat{flex:0 0 37%;background:#f7f8fa;padding:14px 12px;display:flex;flex-direction:column;gap:10px;border-left:1.5px solid #e3e6ea}
-.cv .bub{background:#fff;border:1px solid #e3e6ea;border-radius:12px;padding:8px 10px;line-height:1.4}
-.cv .bub.me{background:var(--gp);border-color:#cfe3bd}
-.cv .doc{flex:1;padding:16px 18px;position:relative}
-.cv .doc .dt{font-size:18px;font-weight:800;color:#333;margin-bottom:10px}
-.cv .ln{height:8px;border-radius:4px;background:#e7e9ec;margin:9px 0}
-.cv .ln.s{width:65%}
-.cv .hl{background:#fff3a3;border-radius:6px;padding:4px 8px;outline:2.5px solid var(--red);margin:10px 0}
-.cv .hl .ln{background:#e9d97a}
-.cv .ask{position:absolute;right:30px;top:196px;background:#fff;border:2px solid var(--red);border-radius:12px;padding:7px 12px;color:var(--red);font-weight:700;font-size:15px;box-shadow:0 6px 16px rgba(0,0,0,.12)}
-.cv .tools{position:absolute;left:14px;bottom:12px;display:flex;gap:7px}
-.cv .tools i{width:30px;height:30px;border-radius:50%;background:#eef1f4;border:1px solid #dfe3e8}
-.cv .exp{position:absolute;left:14px;top:12px;width:74px;height:26px;border-radius:14px;background:#eef1f4;border:1px solid #dfe3e8}
-/* notebook diagram */
-.nbk{width:470px;background:#fff;border:2.5px solid var(--gd);border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.08)}
-.nbk .hd{background:var(--gd);color:#fff;font-size:24px;font-weight:800;padding:12px 20px}
-.nbk .row{display:flex;gap:16px;align-items:center;padding:14px 20px;border-top:1px solid var(--line)}
-.nbk .row:first-of-type{border-top:0}
-.nbk .ic{flex:0 0 46px;height:46px;border-radius:10px;background:var(--gp);display:flex;align-items:center;justify-content:center}
-.nbk .row b{display:block;font-size:24px;color:var(--gdd);line-height:1.2}
-.nbk .row span{display:block;font-size:19px;color:var(--muted);line-height:1.35}
-/* real example card (slide 14) */
+.slide.sep .roof{border-bottom-color:#fff}
+/* ---------- interface mocks (labels copied from the real Hebrew screens, 3.10.2026) ---------- */
+.ui{background:#fff;border:1.5px solid #dfe3e8;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.08);font-size:17px;color:#333;padding:10px 8px}
+.ui .it{display:flex;align-items:center;gap:12px;padding:6px 14px;border-radius:10px;line-height:1.3}
+.ui .it .ic{flex:0 0 16px;width:16px;height:16px;border-radius:50%;background:#dfe3e8}
+.ui .it .ch{margin-right:auto;color:#777}
+.ui .it.on{outline:2.5px solid var(--red);background:#fff6f6;color:var(--red);font-weight:700}
+.ui .cap{font-size:14px;color:#80868e;padding:10px 14px 3px}
+.ui .hr{height:1px;background:#e7e9ec;margin:6px 10px}
+.cn{flex:0 0 24px;width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;font-weight:800;font-size:13px;display:inline-flex;align-items:center;justify-content:center;margin-right:auto}
+.subm{position:absolute;background:#fff;border:1.5px solid #e3e6ea;border-radius:16px;box-shadow:0 10px 26px rgba(0,0,0,.1);padding:8px 6px;font-size:16px}
+/* gemini prompt bar */
+.gbar{background:#fff;border:1.5px solid #dfe3e8;border-radius:30px;height:60px;display:flex;align-items:center;padding:0 18px;gap:12px;box-shadow:0 8px 26px rgba(0,0,0,.08);font-size:18px}
+.gbar .plus{width:34px;height:34px;border-radius:50%;background:#eef1f4;display:flex;align-items:center;justify-content:center;font-size:24px;color:#333;font-weight:300}
+.gbar .plus.on{border:2.5px solid var(--red)}
+.gbar .ph{color:#8a8f98}
+.gbar .model{margin-right:auto;color:#333;background:#f1f3f4;border-radius:18px;padding:4px 12px}
+.gbar .model.on{outline:2.5px solid var(--red)}
+.gbar .mic{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.gbar .mic.on{outline:2.5px solid var(--red)}
+/* sidebar mock */
+.side{width:330px;padding:14px 8px}
+.side .brand{font-size:20px;font-weight:700;padding:2px 14px 10px}
+.side .foot{display:flex;align-items:center;gap:10px;padding:10px 14px 2px;border-top:1px solid #eceff2;margin-top:6px}
+.side .av{width:26px;height:26px;border-radius:50%;background:#c9d3c0}
+/* model picker */
+.mp .it{flex-direction:column;align-items:flex-start;gap:0;padding:7px 16px;position:relative}
+.mp .it small{font-size:14px;color:#80868e}
+.mp .it .tick{position:absolute;left:14px;top:14px;color:#333}
+/* image generation */
+.styles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.styles div{height:62px;border-radius:12px;display:flex;align-items:flex-end;padding:6px 8px;color:#fff;font-size:13px;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.ratio{display:inline-flex;align-items:center;gap:6px;border:2.5px solid var(--red);border-radius:20px;padding:4px 14px;font-size:15px;color:var(--red);font-weight:700;background:#fff6f6}
+/* deep research */
+.dr .box{border:1.5px solid #dfe3e8;border-radius:22px;padding:12px 16px;background:#fff}
+.dr .row{display:flex;gap:10px;align-items:center;margin-top:8px}
+.pill{border:1.5px solid #dfe3e8;border-radius:18px;padding:4px 14px;font-size:15px;background:#f1f3f4}
+.pill.on{outline:2.5px solid var(--red);background:#fff6f6;color:var(--red);font-weight:700}
+.dr .btn2{flex:1;text-align:center;border:1.5px solid #dfe3e8;border-radius:18px;padding:5px;font-size:15px}
+.dr .btn2.on{outline:2.5px solid var(--red);color:var(--red);font-weight:700}
+.cbx{width:16px;height:16px;border:2px solid #777;border-radius:3px;margin-right:auto;display:inline-flex;align-items:center;justify-content:center;font-size:12px}
+/* keycaps */
+.key{display:inline-block;min-width:60px;text-align:center;border:2px solid #c9ccd1;border-bottom-width:5px;border-radius:9px;padding:4px 14px;font-size:24px;font-weight:700;background:#fff;color:#333}
+/* canvas: what you make there */
+.make{display:flex;flex-direction:column;gap:14px;width:100%}
+.make .card{display:flex;gap:20px;align-items:center;padding:18px 24px}
+.make h4{font-size:28px;margin:0}
+.make p{font-size:21px}
+/* tool cards */
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tools .card{padding:16px 22px}
+.tools h4{font-size:25px;margin-bottom:4px}
+.tools p{font-size:21px;line-height:1.4}
+.tools .lbl{display:table;font-size:15px;font-weight:700;color:var(--gdd);background:var(--gp);border-radius:12px;padding:1px 10px;margin-bottom:6px}
+/* image scenario cards */
+.scen{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.scen .card{padding:16px 22px}
+.scen h4{font-size:26px;margin-bottom:4px}
+.scen p{font-size:22px;line-height:1.4}
+/* notebook mocks */
+.nbh .tabs{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:4px 10px 10px;border-bottom:1px solid #eceff2}
+.nbh .tab{font-size:14px;padding:4px 10px;border-radius:14px;color:#555}
+.nbh .tab.on{background:#e8f0fe;color:#1a56c4;font-weight:700}
+.nbh .bar2{display:flex;align-items:center;gap:10px;padding:10px 10px 6px}
+.nbh .srch{flex:1;border:1.5px solid #dfe3e8;border-radius:18px;padding:4px 12px;color:#8a8f98;font-size:14px}
+.nbh .vw{display:flex;gap:4px}
+.nbh .vw i{width:24px;height:24px;border-radius:6px;border:1.5px solid #c9ccd1}
+.nbh .new{background:#1a56c4;color:#fff;border-radius:16px;padding:4px 14px;font-size:14px;font-weight:700}
+.nbh .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:8px 10px}
+.nbh .nc{background:#f6f8fa;border-radius:12px;padding:10px;font-size:13px;color:#666;height:74px}
+.nbh .nc b{display:block;font-size:14px;color:#333;margin-top:16px}
+.srcd .srch2{display:flex;align-items:center;gap:8px;border:1.5px solid #dfe3e8;border-radius:18px;padding:8px 12px;font-size:14px;color:#8a8f98}
+.srcd .srch2>span{border:1.5px solid #dfe3e8;border-radius:14px;padding:2px 10px;color:#333;font-size:13px}
+.srcd .btns{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0}
+.srcd .btns>span{border:1.5px solid #c9ccd1;border-radius:18px;padding:5px 14px;font-size:15px;color:#333}
+.srcd .btns>span.on{outline:2.5px solid var(--red);color:var(--red);font-weight:700}
+.srcd .drop{border:1.5px dashed #c9ccd1;border-radius:12px;padding:12px;text-align:center;font-size:13px;color:#777}
+.three{display:flex;gap:8px;height:270px}
+.three>div{background:#fff;border:1.5px solid #dfe3e8;border-radius:14px;padding:10px;font-size:13px;color:#555;display:flex;flex-direction:column;gap:6px}
+.three .hd3{font-size:16px;font-weight:800;color:#333}
+.three .ln{height:7px;border-radius:4px;background:#e7e9ec}
+.three .ln.s{width:60%}
+.three .sb{border:1px solid #e3e6ea;border-radius:10px;padding:4px 8px;text-align:center}
+.three .stud{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.three .stud span{border:1px solid #e3e6ea;border-radius:8px;padding:4px 6px;font-size:12px;text-align:center}
+.studio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.studio .card{padding:14px 18px}
+.studio h4{font-size:24px;margin-bottom:2px}
+.studio p{font-size:19px;line-height:1.35}
+.studio .new{font-size:13px;background:var(--red);color:#fff;border-radius:10px;padding:1px 8px;margin-right:6px;vertical-align:middle;font-weight:700}
+.quota{background:#fff;border:1.5px solid #dfe3e8;border-radius:12px;padding:12px 16px;font-size:16px;color:#333}
+.quota .qb{height:10px;border-radius:5px;background:#dfe6f5;margin:8px 0 6px;position:relative;overflow:hidden}
+.quota .qb i{position:absolute;right:0;top:0;bottom:0;width:62%;background:#4a7fe0}
+.quota .lg{display:flex;gap:18px;font-size:13px;color:#555}
+/* real example card */
 .ex{background:#fff;border:2.5px solid var(--gd);border-radius:12px;padding:18px 26px}
 .ex .nm{font-size:30px;font-weight:800;color:var(--gd)}
 .ex .by{font-size:22px;color:var(--muted);margin-right:10px}
@@ -143,9 +191,9 @@ tbody tr:nth-child(even) td{background:var(--gt)}
 .reasons .card{padding:18px 20px}
 .reasons .card p{font-size:25px;line-height:1.4}
 .reasons .card .n{font-size:22px;font-weight:800;color:var(--gd)}
-/* sources diagram */
+/* hub diagram (sources / context) */
 .src-dia{position:relative;width:440px;height:400px}
-.src-dia .bot{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:150px;height:150px;border-radius:50%;background:var(--gd);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800}
+.src-dia .bot{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:150px;height:150px;border-radius:50%;background:var(--gd);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;text-align:center}
 .src-dia .s{position:absolute;background:#fff;border:2px solid var(--g);border-radius:12px;padding:10px 14px;font-size:20px;font-weight:700;text-align:center;width:150px}
 .src-dia .s.nb{border:3px solid var(--red);width:170px;background:#fff8f8}
 .src-dia svg{position:absolute;inset:0}
@@ -210,7 +258,7 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
     <div class="tx">
       <div class="kicker">סדנה 1 מתוך 3 לסגל האקדמי</div>
       <h1>ג'מיני כסביבת עבודה</h1>
-      <p class="lead" style="margin-top:16px">שיחה, קנבס, נוטבוק <span class="r">וג'ם</span> - במקום אחד</p>
+      <p class="lead" style="margin-top:16px">שיחה, קנבס, <span class="r">ג'ם</span> ונוטבוק - במקום אחד</p>
       <div class="f" style="margin-top:40px">
         <p style="font-size:24px;font-weight:500">המכללה האקדמית צפת</p>
         <p style="font-size:24px" class="dim">יום ראשון, 4.10.2026</p>
@@ -221,8 +269,8 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
       <div class="mb" aria-hidden="true">
         <div class="fl">שיחה</div>
         <div class="fl">קנבס</div>
-        <div class="fl">נוטבוק</div>
         <div class="fl act">ג'ם</div>
+        <div class="fl">נוטבוק</div>
         <div class="roof"></div>
       </div>
     </div>
@@ -260,190 +308,489 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
     </div>
     <div class="card f" style="display:flex;gap:18px;align-items:center;padding:24px">
       <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><rect x="12" y="6" width="40" height="52" rx="5" fill="none" stroke="#5E9A28" stroke-width="4"/><rect x="19" y="16" width="26" height="5" rx="2" fill="#75B743"/><rect x="19" y="27" width="26" height="4" rx="2" fill="#EDF5E4"/><rect x="19" y="36" width="18" height="4" rx="2" fill="#EDF5E4"/></svg>
-      <div><h4 style="font-size:26px">ובדרך: טיוטה בקנבס</h4><p style="font-size:22px">מטלה או מתווה שיעור, על הסילבוס האמיתי שלכם/ן.</p></div>
+      <div><h4 style="font-size:26px">ובדרך: מסמך בקנבס</h4><p style="font-size:22px">על הסילבוס האמיתי שלכם/ן. ואם יישאר זמן - נוטבוק לקורס.</p></div>
     </div>
   </div>
-  <div class="f" style="display:flex;gap:12px;align-items:center;font-size:26px">
-    <span class="hotlabel">פתיחה</span><span class="dim" aria-hidden="true">&larr;</span>
+  <div class="f" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <span class="hotlabel">היכרות</span><span class="dim" aria-hidden="true">&larr;</span>
+    <span class="hotlabel">הקשר</span><span class="dim" aria-hidden="true">&larr;</span>
     <span class="hotlabel">קנבס</span><span class="dim" aria-hidden="true">&larr;</span>
     <span class="hotlabel" style="background:#f1f1ef;color:#6F6D69">הפסקה</span><span class="dim" aria-hidden="true">&larr;</span>
-    <span class="hotlabel">נוטבוק</span><span class="dim" aria-hidden="true">&larr;</span>
     <span class="hotlabel">ג'ם</span><span class="dim" aria-hidden="true">&larr;</span>
+    <span class="hotlabel">נוטבוק</span><span class="dim" aria-hidden="true">&larr;</span>
     <span class="hotlabel">סיכום</span>
   </div>
   <p class="closing f">על השולחן: מחשב, חשבון גוגל, סילבוס, ומטלה או מצגת מהקורס.</p>
 </section>
 
-<!-- 4 ארבע קומות -->
-<section class="slide">
-  <img src="assets/logo.png" class="logo" alt="">
-  <h2>מהשאלה הבודדת לסביבת עבודה</h2>
-  <div class="split" style="align-items:center">
-    <div class="tx" style="flex:.9">
-      <p class="statement" style="font-size:34px">"רבים משתמשים בבינה מלאכותית כמו במנוע חיפוש: <span class="r">שאלה, תשובה, סוגרים את החלון.</span>"</p>
-      <p class="dim" style="font-size:24px;margin-top:18px">היום: ארבע קומות, וכל אחת עונה על צורך אחר.</p>
-    </div>
-    <div class="im" style="flex:1.1">
-      <div class="bld">
-        <div class="fl f"><span class="n">1</span><div><b>שיחה</b><span>שאלה, הסבר, רעיון</span></div></div>
-        <div class="fl f"><span class="n">2</span><div><b>קנבס</b><span>תוצר שעובדים עליו יחד: מטלה, מתווה, מסמך</span></div></div>
-        <div class="fl f"><span class="n">3</span><div><b>נוטבוק</b><span>פרויקט: מקורות, הנחיות ושיחות במקום אחד</span></div></div>
-        <div class="fl top f"><span class="n">4</span><div><b>ג'ם</b><span>עוזר קבוע, שמכיר את הקורס ומחכה לכם/ן</span></div></div>
-        <div class="roof" aria-hidden="true"></div>
-      </div>
-    </div>
-  </div>
-  <p class="closing f">היום עולים קומה אחרי קומה.</p>
-</section>
-
-<!-- 5 נכנסים לג'מיני -->
-<section class="slide">
+<!-- 4 נכנסים לג'מיני -->
+<section class="slide spread">
   <img src="assets/logo.png" class="logo" alt="">
   <h2>לפני שמתחילים: נכנסים לג'מיני<span class="ws">נתרגל בסדנה</span></h2>
-  <div class="split" style="align-items:flex-start">
-    <div class="tx">
-      <ol class="steps">
-        <li class="f">להיכנס לג'מיני:
-          <span class="url">gemini.google.com</span></li>
-        <li class="f">להתחבר עם <b>חשבון גוגל</b>, ולוודא שהוא מופיע בתמונת הפרופיל.</li>
-        <li class="f">לבחור בבורר המודלים את <b>המודל המתקדם</b>, לא את המהיר.</li>
-        <li class="f">ללחוץ על <span class="r">הפלוס</span> בשורת הכתיבה, ולבחור <span class="r">קנבס</span>.</li>
-      </ol>
-    </div>
-    <div class="im f" style="flex-direction:column;align-items:flex-start;padding-top:8px">
-      <div class="gm" aria-hidden="true">
-        <div class="bar">
-          <span class="plus">+</span>
-          <span class="ph">יש לך שאלה ל-<!--
-            --><span lang="en">Gemini</span>?</span>
-          <span class="model">
-            <span lang="en">Pro</span>
-            &#8964;</span>
-        </div>
-        <div class="menu">
-          <div class="mi">העלאת קבצים</div>
-          <div class="mi">הוספה מ-<!--
-            --><span lang="en">Drive</span></div>
-          <div class="mi">עוד העלאות <span class="ch">&#8249;</span></div>
-          <div class="sep"></div>
-          <div class="mi">יצירת תמונה</div>
-          <div class="mi">יצירת סרטון</div>
-          <div class="mi on">
-            <span lang="en">Canvas</span></div>
-          <div class="mi">כלים נוספים <span class="ch">&#8249;</span></div>
-        </div>
-      </div>
-      <p class="sr-only">הדמיה של שורת הכתיבה של ג'מיני: ללחוץ על הפלוס, ובתפריט שנפתח לבחור קנבס.</p>
-    </div>
-  </div>
+  <ol class="steps">
+    <li class="f">להיכנס לג'מיני:
+      <span class="url">gemini.google.com</span></li>
+    <li class="f">להתחבר עם <b>חשבון גוגל</b>, ולוודא שהוא מופיע בתמונת הפרופיל.</li>
+  </ol>
   <div class="fix f">
     <div><b>אין חשבון גוגל?</b>פותחים חשבון בשתי דקות, או עוקבים אחרי המסך שלי ומתרגלים אחר כך.</div>
     <div><b>עובדים מהטלפון?</b>אפשר, אבל קנבס וג'ם נוחים הרבה יותר במחשב.</div>
     <div><b>ג'מיני עונה באנגלית?</b>כותבים לו: "ענה בעברית".</div>
   </div>
+  <p class="closing red f">תקועים/ות? כתבו בצ'אט. אפשר גם בהמשך ובכל שלב בסדנה.</p>
 </section>
 
-<!-- 6 גאון על הרצף -->
+<!-- 5 מעבר: היכרות -->
+<section class="slide sep" style="justify-content:center">
+  <div class="logo-card"><img src="assets/logo.png" alt=""></div>
+  <div class="sep-bld" aria-hidden="true">
+    <div class="mb">
+      <div class="fl act">שיחה</div>
+      <div class="fl">קנבס</div>
+      <div class="fl">ג'ם</div>
+      <div class="fl">נוטבוק</div>
+      <div class="roof"></div>
+    </div>
+  </div>
+  <div class="kicker">קומה 1 מתוך 4</div>
+  <h2>היכרות עם ג'מיני</h2>
+  <p class="sub2">מה יש על המסך, ואיך נותנים לו את ההקשר הנכון</p>
+</section>
+
+<!-- 6 תפריט הצד -->
+<section class="slide">
+  <img src="assets/logo.png" class="logo" alt="">
+  <div class="kicker">היכרות &middot; 1 מתוך 3</div>
+  <h2>תפריט הצד</h2>
+  <div class="split" style="align-items:center">
+    <div class="tx">
+      <ul class="nums">
+        <li class="f"><b>שיחה חדשה</b> - לכל נושא חדש.</li>
+        <li class="f"><b>חיפוש שיחות</b> - כל שיחה נשמרת. אפשר לחזור ולהמשיך מאותה נקודה.</li>
+        <li class="f"><b>ספרייה</b> - כל מה שג'מיני יצר בשבילכם/ן: תמונות, סרטונים, דוחות ותוצרי קנבס.</li>
+        <li class="f"><b>
+          <span lang="en">Gems</span>
+          </b> - העוזרים הקבועים שלכם/ן. היום נבנה אחד.</li>
+        <li class="f"><b>תיקיות נוטבוק</b> - פרויקט שלם: מקורות, הנחיות ושיחות. מסונכרן עם
+          <span lang="en">Gemini Notebook</span>.</li>
+        <li class="f"><b>מהזמן האחרון</b> - השיחות האחרונות.</li>
+        <li class="f"><b>הגדרות</b> - בפינה למטה: שפה, פעילות, ומכסת השימוש.</li>
+      </ul>
+    </div>
+    <div class="im" style="flex:.75">
+      <div class="ui side" aria-hidden="true">
+        <div class="brand">
+          <span lang="en">Gemini</span></div>
+        <div class="it"><span class="ic"></span>שיחה חדשה<span class="cn">1</span></div>
+        <div class="it"><span class="ic"></span>חיפוש שיחות<span class="cn">2</span></div>
+        <div class="it"><span class="ic"></span>ספרייה<span class="cn">3</span></div>
+        <div class="it"><span class="ic"></span>
+          <span lang="en">Gems</span>
+          <span class="cn">4</span></div>
+        <div class="cap">תיקיות
+          <span lang="en">Notebook</span></div>
+        <div class="it"><span class="ic"></span>תיקיית
+          <span lang="en">Notebook</span>
+          חדשה<span class="cn">5</span></div>
+        <div class="it"><span class="ic"></span>מבוא לקורס: מקורות</div>
+        <div class="cap">מהזמן האחרון</div>
+        <div class="it">מערך שיעור: שבוע 3<span class="cn">6</span></div>
+        <div class="it">רעיונות למטלה מסכמת</div>
+        <div class="foot"><span class="av"></span>הפרופיל שלי<span class="cn">7</span></div>
+      </div>
+      <p class="sr-only">הדמיה של תפריט הצד של ג'מיני, עם מספרים שתואמים לרשימה.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 תפריט הפלוס -->
+<section class="slide">
+  <img src="assets/logo.png" class="logo" alt="">
+  <div class="kicker">היכרות &middot; 2 מתוך 3</div>
+  <h2>תפריט הפלוס</h2>
+  <div class="split" style="align-items:flex-start">
+    <div class="tx" style="flex:1">
+      <ul class="dots">
+        <li class="f" style="font-size:23px;margin:10px 0"><b>להוסיף הקשר:</b> קבצים מהמחשב, מהדרייב, או נוטבוק שלם.</li>
+        <li class="f" style="font-size:23px;margin:10px 0"><b>ליצור:</b> תמונה ומוזיקה.</li>
+        <li class="f" style="font-size:23px;margin:10px 0"><b>מצבי עבודה:</b> קנבס, ומחקר עומק.</li>
+        <li class="f" style="font-size:23px;margin:10px 0"><b>למידה מותאמת אישית:</b> מורה פרטי שמסביר צעד אחר צעד, במקום לתת תשובה.</li>
+        <li class="f" style="font-size:23px;margin:10px 0"><b>
+          <span lang="en">AI</span>
+          מותאם אישית:</b> תשובות שנשענות על הג'ימייל, התמונות והדרייב שלכם/ן - רק אם מאשרים.</li>
+      </ul>
+    </div>
+    <div class="im f" style="flex:1.15;position:relative;height:460px;align-items:flex-start;justify-content:flex-start">
+      <div style="position:relative;width:560px" aria-hidden="true">
+        <div class="gbar"><span class="plus on">+</span><span class="ph">יש לך שאלה ל-<!--
+          --><span lang="en">Gemini</span>?</span></div>
+        <div class="ui" style="width:270px;margin-top:8px;padding:6px">
+          <div class="it"><span class="ic"></span>העלאת קבצים</div>
+          <div class="it"><span class="ic"></span>הוספה מ-<!--
+            --><span lang="en">Drive</span></div>
+          <div class="it on"><span class="ic"></span>עוד העלאות<span class="ch">&#8249;</span></div>
+          <div class="hr"></div>
+          <div class="it"><span class="ic"></span>יצירת תמונה</div>
+          <div class="it"><span class="ic"></span>יצירת מוזיקה</div>
+          <div class="it"><span class="ic"></span>
+            <span lang="en">Canvas</span></div>
+          <div class="it"><span class="ic"></span>
+            <span lang="en">Deep Research</span></div>
+          <div class="it on"><span class="ic"></span>כלים נוספים<span class="ch">&#8249;</span></div>
+        </div>
+        <div class="subm" style="right:282px;top:150px;width:200px">
+          <div class="it"><span class="ic"></span>
+            <span lang="en">Google Photos</span></div>
+          <div class="it"><span class="ic"></span>
+            <span lang="en">Notebooks</span></div>
+        </div>
+        <div class="subm" style="right:282px;top:340px;width:260px">
+          <div class="it"><span class="ic"></span>למידה מותאמת אישית</div>
+          <div class="it"><span class="ic"></span>
+            <span lang="en">AI</span>
+            מותאם אישית</div>
+        </div>
+      </div>
+      <p class="sr-only">הדמיה של תפריט הפלוס: העלאת קבצים, הוספה מדרייב, עוד העלאות, יצירת תמונה, יצירת מוזיקה, קנבס, מחקר עומק וכלים נוספים.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 בורר המודלים והכתבה -->
+<section class="slide">
+  <img src="assets/logo.png" class="logo" alt="">
+  <div class="kicker">היכרות &middot; 3 מתוך 3</div>
+  <h2>בורר המודלים, והכתבה בקול</h2>
+  <div class="split" style="align-items:center">
+    <div class="tx">
+      <ul class="dots">
+        <li class="f" style="font-size:23px;margin:8px 0"><b>
+          <span lang="en">Flash-Lite</span>
+          </b> - הכי מהיר. לניסוח מחדש, סיכום קצר ורעיונות.</li>
+        <li class="f" style="font-size:23px;margin:8px 0"><b>
+          <span lang="en">Flash</span>
+          </b> - מהירות וחשיבה יחד. ברירת מחדל טובה לרוב העבודה.</li>
+        <li class="f" style="font-size:23px;margin:8px 0"><b>
+          <span lang="en">Pro</span>
+          </b> - המתקדם ביותר: קבצים ארוכים וניתוח מעמיק. איטי יותר, וצורך יותר מהמכסה.</li>
+        <li class="f" style="font-size:23px;margin:8px 0"><b>חשיבה מעמיקה</b> - לא מודל נפרד: המודל חושב על הבקשה זמן רב יותר. לבעיות מורכבות.</li>
+        <li class="f" style="font-size:23px;margin:8px 0"><b>המיקרופון</b> - הכתבה: מדברים, והטקסט נכתב בשורה. שולחים כרגיל.</li>
+      </ul>
+    </div>
+    <div class="im" style="flex:.95;flex-direction:column;align-items:flex-start;gap:8px">
+      <div class="gbar" style="width:480px" aria-hidden="true"><span class="plus">+</span><span class="ph">יש לך שאלה...</span><span class="model on">
+        <span lang="en">Pro</span>
+        מורחב &#8964;</span><span class="mic on"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="#333" stroke-width="2"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3" fill="none" stroke="#333" stroke-width="2"/></svg></span></div>
+      <div class="ui mp" style="width:300px;margin-right:150px" aria-hidden="true">
+        <div class="it">
+          <span lang="en" dir="ltr">3.5 Flash-Lite</span>
+          <small>התשובות הכי מהירות</small></div>
+        <div class="it">
+          <span lang="en" dir="ltr">3.6 Flash</span>
+          <small>עזרה כללית</small></div>
+        <div class="it">
+          <span lang="en" dir="ltr">3.1 Pro</span>
+          <small>חשיבה רציונלית משופרת</small><span class="tick">&#10003;</span></div>
+        <div class="hr"></div>
+        <div class="it">חשיבה מעמיקה<small>פתרון בעיות מורכבות</small><span class="tick">&#10003;</span></div>
+      </div>
+      <p class="sr-only">הדמיה של בורר המודלים: שלושה מודלים, ומתחתם אפשרות של חשיבה מעמיקה. לידו כפתור המיקרופון.</p>
+    </div>
+  </div>
+  <p class="closing red f" style="font-size:25px">שימו לב: מ-9.10 בחשבון חינמי יישאר רק
+    <span lang="en">Flash-Lite</span>.
+    שאר המודלים - במנוי.</p>
+</section>
+
+<!-- 9 משאלה בודדת לשיחת עבודה -->
 <section class="slide spread">
   <img src="assets/logo.png" class="logo" alt="">
-  <h2>גאון על הרצף</h2>
-  <p class="statement" style="max-width:1000px">הבינה המלאכותית מבריקה, אבל <span class="r">לא מסיקה מסקנות</span>.<br><span style="font-weight:400">היא עושה בדיוק את מה שהיא מבינה שביקשתם/ן.</span></p>
+  <h2>מהשאלה הבודדת לשיחת עבודה</h2>
+  <p class="statement" style="font-size:32px;max-width:1080px">"רבים משתמשים בבינה מלאכותית כמו במנוע חיפוש: <span class="r">שאלה, תשובה, סוגרים את החלון.</span>"</p>
   <div class="cols">
-    <div class="card f"><h4>כשהיא טועה</h4><p>ברוב המקרים לא היינו מדויקים מספיק.</p></div>
-    <div class="card f"><h4>אין מילות קסם ואין מתכון סודי</h4><p>פרומפט טוב הוא הסבר ברור ומפורט של התוצאה הרצויה.</p></div>
+    <div class="card f">
+      <span class="tag">שאלה בודדת</span>
+      <h4>שאלה &larr; תשובה &larr; סוגרים</h4>
+      <p style="font-size:24px">היא עושה בדיוק את מה שהבינה שביקשתם/ן. בלי הקשר - היא מנחשת.</p>
+    </div>
+    <div class="card f" style="border:2.5px solid var(--g)">
+      <span class="tag" style="background:var(--g);color:#fff">שיחת עבודה</span>
+      <h4>הקשר &larr; בקשה ברורה &larr; משוב &larr; עוד סבב</h4>
+      <p style="font-size:24px">מי אני, לאיזה קורס, מה המטרה - ואז מתקנים יחד עד שזה טוב.</p>
+    </div>
   </div>
-  <p class="closing f">התשובה הלא נכונה שלה היא הפידבק שלנו לנסח מחדש.</p>
+  <p class="closing f">התשובה הראשונה היא טיוטה. העבודה מתחילה בתגובה שלכם/ן.</p>
 </section>
 
-<!-- 7 מעבר: קנבס -->
+<!-- 10 הקשר במקום פרומפט ארוך -->
+<section class="slide">
+  <img src="assets/logo.png" class="logo" alt="">
+  <h2>הקשר, במקום פרומפט ארוך</h2>
+  <div class="split" style="align-items:center">
+    <div class="tx">
+      <ul class="dots">
+        <li class="f" style="font-size:24px">במקום להקליד הכל: <b>מצרפים</b> סילבוס, מאמר או מטלה קיימת, וכותבים רק מה רוצים.</li>
+        <li class="f" style="font-size:24px"><b>מהמחשב או מהדרייב</b> - בפלוס, בשורת הכתיבה. עד עשרה קבצים בפעם אחת.</li>
+        <li class="f" style="font-size:24px"><b>נוטבוק שלם</b> - כל מקורות הקורס בבת אחת: פלוס &larr; עוד העלאות &larr;
+          <span lang="en">Notebooks</span>.</li>
+        <li class="f" style="font-size:24px"><b>תמונה</b> - כשמה שרוצים להראות לא כתוב בשום קובץ.</li>
+      </ul>
+    </div>
+    <div class="im" style="flex:.85">
+      <div class="src-dia" aria-hidden="true">
+        <svg viewBox="0 0 440 400"><g stroke="#C9DDB5" stroke-width="3"><line x1="220" y1="200" x2="80" y2="55"/><line x1="220" y1="200" x2="360" y2="55"/><line x1="220" y1="200" x2="80" y2="345"/><line x1="220" y1="200" x2="360" y2="345"/></g></svg>
+        <div class="s" style="right:6px;top:26px">קובץ מהמחשב</div>
+        <div class="s" style="left:6px;top:26px">קובץ מהדרייב</div>
+        <div class="s" style="right:6px;bottom:26px">תמונה</div>
+        <div class="s nb" style="left:0;bottom:20px">נוטבוק שלם</div>
+        <div class="bot">ג'מיני</div>
+      </div>
+    </div>
+  </div>
+  <p class="closing f">הקשר טוב חוסך את רוב הפרומפט.</p>
+</section>
+
+<!-- 11 למה לצרף תמונה -->
+<section class="slide spread">
+  <img src="assets/logo.png" class="logo" alt="">
+  <h2>למה לצרף תמונה?</h2>
+  <div class="scen">
+    <div class="card f"><h4>צילום של הלוח</h4><p>אחרי השיעור - לסיכום מסודר לסטודנטים ולסטודנטיות.</p></div>
+    <div class="card f"><h4>תרשים ממאמר</h4><p>הסבר בעברית פשוטה, וגרסה פשוטה יותר לשנה א'.</p></div>
+    <div class="card f"><h4>גרף או טבלה</h4><p>מה הם מראים - ומה הם לא מוכיחים.</p></div>
+    <div class="card f"><h4>צילום מסך של תקלה</h4><p>הודעה במודל, באקסל או בזום: מה עושים עכשיו?</p></div>
+    <div class="card f"><h4>דף מודפס או כתב יד</h4><p>לטקסט שאפשר לערוך, או לשאלות לבוחן.</p></div>
+    <div class="card f"><h4>דוגמה לעיצוב</h4><p>"בסגנון הזה" - לדף עבודה, לשקופית או לפוסטר.</p></div>
+  </div>
+  <p class="closing red f">לא לצלם עבודות או מסמכים עם שמות של סטודנטים וסטודנטיות.</p>
+</section>
+
+<!-- 12 יצירת תמונה ומוזיקה -->
+<section class="slide">
+  <img src="assets/logo.png" class="logo" alt="">
+  <h2>יצירת תמונה ומוזיקה<span class="ws home">לנסות בבית</span></h2>
+  <div class="split" style="align-items:center">
+    <div class="tx" style="flex:.9">
+      <ul class="dots">
+        <li class="f" style="font-size:24px"><b>יצירת תמונה:</b> מתארים במילים מה רוצים לראות.</li>
+        <li class="f" style="font-size:24px"><b>סגנון מוכן</b> - בוחרים מהגלריה, ומוסיפים תיאור.</li>
+        <li class="f" style="font-size:24px"><b>יחס גובה-רוחב</b> - למשל רוחבי לשקופית, אנכי לטלפון.</li>
+        <li class="f" style="font-size:24px"><b>יצירת מוזיקה:</b> שיר של כדקה או של 2-3 דקות, עם מילים או בלי.</li>
+      </ul>
+    </div>
+    <div class="im f" style="flex:1.1">
+      <div class="ui" style="width:560px;padding:14px" aria-hidden="true">
+        <div class="styles">
+          <div style="background:linear-gradient(135deg,#7b2ff7,#f107a3)">דיסקו משנות ה-80</div>
+          <div style="background:linear-gradient(135deg,#222,#777)">מונוכרום</div>
+          <div style="background:linear-gradient(135deg,#8a5a2b,#d9a441)">סטימפאנק</div>
+          <div style="background:linear-gradient(135deg,#0f2027,#2c5364)">קולנועי</div>
+          <div style="background:linear-gradient(135deg,#555,#bbb)">סרט מצויר ישן</div>
+          <div style="background:linear-gradient(135deg,#4facfe,#43e97b)">בלוק צבע</div>
+          <div style="background:linear-gradient(135deg,#1e3c72,#9fb7ff)">קרני אור</div>
+          <div style="background:linear-gradient(135deg,#614385,#516395)">דיוקן רך</div>
+        </div>
+        <div style="border:1.5px solid #dfe3e8;border-radius:18px;margin-top:12px;padding:10px 14px">
+          <div style="color:#8a8f98;font-size:15px">כאן מתארים את התמונה</div>
+          <div style="display:flex;gap:8px;margin-top:10px;align-items:center"><span class="pill">תמונות</span><span class="ratio">יחס גובה-רוחב &#8964;</span></div>
+        </div>
+      </div>
+      <p class="sr-only">הדמיה של מסך יצירת התמונה: גלריית סגנונות, תיבת תיאור, ובחירת יחס גובה-רוחב.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 13 מחקר עומק -->
+<section class="slide">
+  <img src="assets/logo.png" class="logo" alt="">
+  <h2>מחקר עומק:
+    <span lang="en">Deep Research</span></h2>
+  <div class="split" style="align-items:center">
+    <div class="tx">
+      <ul class="dots">
+        <li class="f" style="font-size:22px;margin:8px 0"><b>מה זה:</b> סוכן שמתכנן מחקר, קורא עשרות מקורות, וכותב דוח עם הפניות. לוקח כ-5 עד 10 דקות, ואפשר לערוך את התוכנית לפני שהוא מתחיל.</li>
+        <li class="f" style="font-size:22px;margin:8px 0"><b>מקורות:</b> בוחרים איפה לחפש - חיפוש גוגל, ג'ימייל, דרייב, צ'אט.</li>
+        <li class="f" style="font-size:22px;margin:8px 0"><b>למה לבחור?</b> מכבים את חיפוש גוגל ובוחרים דרייב, והדוח נבנה רק מהחומרים שלכם/ן: סילבוסים, מאמרים, טיוטות.</li>
+        <li class="f" style="font-size:22px;margin:8px 0"><b>אפליקציות מקושרות:</b> שירותי גוגל שג'מיני מורשה לקרוא. בחשבון של מוסד - לפי מה שהמוסד התיר.</li>
+        <li class="f" style="font-size:22px;margin:8px 0"><b>קבצים:</b> מצרפים מסמך שהמחקר יתבסס עליו.</li>
+      </ul>
+    </div>
+    <div class="im f" style="flex:.9">
+      <div class="dr" style="width:450px" aria-hidden="true">
+        <div class="box">
+          <div style="color:#8a8f98;font-size:16px">מה אתה רוצה לחקור?</div>
+          <div class="row"><span class="pill">+</span><span class="pill on">
+            <span lang="en">Deep Research</span></span></div>
+          <div class="row"><span class="btn2 on">מקורות</span><span class="btn2">קבצים</span></div>
+        </div>
+        <div class="ui" style="width:290px;margin-top:8px;padding:6px">
+          <div class="cap">צריך לבחור לפחות מקור אחד</div>
+          <div class="it">חיפוש
+            <span lang="en">Google</span>
+            <span class="cbx">&#10003;</span></div>
+          <div class="it">
+            <span lang="en">Gmail</span>
+            <span class="cbx"></span></div>
+          <div class="it">
+            <span lang="en">Drive</span>
+            <span class="cbx"></span></div>
+          <div class="it">
+            <span lang="en">Chat</span>
+            <span class="cbx"></span></div>
+          <div class="hr"></div>
+          <div class="it">הפעלת אפליקציות מקושרות</div>
+        </div>
+      </div>
+      <p class="sr-only">הדמיה של מחקר עומק: כפתור מקורות שבו בוחרים בין חיפוש גוגל, ג'ימייל, דרייב וצ'אט, וכפתור קבצים.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 14 מעבר: קנבס -->
 <section class="slide sep" style="justify-content:center">
   <div class="logo-card"><img src="assets/logo.png" alt=""></div>
   <div class="sep-bld" aria-hidden="true">
     <div class="mb">
       <div class="fl">שיחה</div>
       <div class="fl act">קנבס</div>
-      <div class="fl">נוטבוק</div>
       <div class="fl">ג'ם</div>
+      <div class="fl">נוטבוק</div>
       <div class="roof"></div>
     </div>
   </div>
   <div class="kicker">קומה 2 מתוך 4</div>
   <h2>קנבס</h2>
-  <p class="sub2">תוצר שעובדים עליו יחד, ולא מתחילים כל פעם מחדש</p>
+  <p class="sub2">מצב העבודה של מי שיוצר/ת בג'מיני</p>
 </section>
 
-<!-- 8 קנבס -->
+<!-- 15 קנבס: מצב העבודה -->
 <section class="slide">
   <img src="assets/logo.png" class="logo" alt="">
   <div class="kicker">קומה 2 מתוך 4 &middot; קנבס</div>
-  <h2>קנבס: לכתוב יחד עם המודל</h2>
+  <h2>קנבס: יוצרים יחד עם המודל</h2>
   <div class="split" style="align-items:center">
-    <div class="tx" style="flex:.95">
+    <div class="tx">
       <ul class="dots">
-        <li class="f" style="font-size:25px"><b>מסמנים קטע</b> ומבקשים לשנות רק אותו - בלי לכתוב הכל מחדש.</li>
-        <li class="f" style="font-size:25px"><b>משנים אורך וטון</b> בכפתורים, בלי פרומפט.</li>
-        <li class="f" style="font-size:25px"><b>מייצאים למסמך גוגל</b> בלחיצה, וממשיכים משם כרגיל.</li>
+        <li class="f" style="font-size:25px">מצב העבודה הנפוץ ביותר למי שמשתמש/ת בג'מיני <b>ככלי עבודה</b>.</li>
+        <li class="f" style="font-size:25px">התוצר נשאר פתוח, ומשפרים אותו בשיחה - <b>בלי להתחיל מחדש</b>.</li>
+        <li class="f" style="font-size:25px">הממשק התעדכן ממש לאחרונה. <span class="r">נראה אותו יחד על המסך.</span></li>
       </ul>
     </div>
-    <div class="im f" style="flex:1.05">
-      <div class="cv" aria-hidden="true">
-        <div class="chat">
-          <div class="bub me">כתוב מטלה לשבוע 5, לפי הסילבוס המצורף</div>
-          <div class="bub">הנה טיוטה בקנבס. מה לשפר?</div>
-        </div>
-        <div class="doc">
-          <span class="exp"></span>
-          <div class="dt">מטלה לשבוע 5</div>
-          <div class="ln"></div><div class="ln"></div><div class="ln s"></div>
-          <div class="hl"><div class="ln"></div><div class="ln"></div><div class="ln s"></div></div>
-          <div class="ln"></div><div class="ln s"></div>
-          <div class="ask">שנה רק את זה: קצר ופשוט יותר</div>
-          <div class="tools"><i></i><i></i><i></i></div>
-        </div>
+    <div class="im" style="flex:.95">
+      <div class="make">
+        <div class="card f"><svg width="54" height="54" viewBox="0 0 64 64" aria-hidden="true"><rect x="12" y="6" width="40" height="52" rx="5" fill="none" stroke="#5E9A28" stroke-width="4"/><rect x="19" y="16" width="26" height="5" rx="2" fill="#75B743"/><rect x="19" y="27" width="26" height="4" rx="2" fill="#EDF5E4"/><rect x="19" y="36" width="18" height="4" rx="2" fill="#EDF5E4"/></svg><div><h4>מסמך</h4><p>מטלה, מתווה שיעור, דף הנחיות</p></div></div>
+        <div class="card f"><svg width="54" height="54" viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="12" width="52" height="34" rx="4" fill="none" stroke="#5E9A28" stroke-width="4"/><rect x="14" y="20" width="20" height="5" rx="2" fill="#75B743"/><rect x="14" y="30" width="30" height="4" rx="2" fill="#EDF5E4"/><path d="M32 46v8M22 56h20" stroke="#5E9A28" stroke-width="4"/></svg><div><h4>מצגת</h4><p>שאפשר לייצא ל-<!--
+          --><span lang="en">Google Slides</span></p></div></div>
+        <div class="card f" style="opacity:.75"><svg width="54" height="54" viewBox="0 0 64 64" aria-hidden="true"><rect x="16" y="4" width="32" height="56" rx="6" fill="none" stroke="#AF242A" stroke-width="4"/><rect x="22" y="14" width="20" height="8" rx="2" fill="#AF242A" opacity=".6"/><circle cx="32" cy="52" r="2.5" fill="#AF242A"/></svg><div><h4>אפליקציה</h4><p>על זה - במפגש של 8.10</p></div></div>
       </div>
-      <p class="sr-only">הדמיה של קנבס: השיחה מימין, המסמך משמאל, ופסקה מסומנת עם בקשה לשנות רק אותה.</p>
     </div>
   </div>
-  <p class="closing f">התוצר נשאר פתוח לצד השיחה. לא מתחילים כל פעם מחדש.</p>
 </section>
 
-<!-- 9 הדגמה: מטלה מהסילבוס -->
+<!-- 16 הדגמה: מסמך מהסילבוס -->
 <section class="slide spread">
   <img src="assets/logo.png" class="logo" alt="">
   <div><div class="kicker">הדגמה חיה</div>
-  <h2>מטלה מתוך הסילבוס</h2></div>
+  <h2>מסמך ראשון: מטלה מתוך הסילבוס</h2></div>
   <div class="prompt">
     <span class="lb">הפרומפט, עם הסילבוס מצורף</span>
     <p>מצורף הסילבוס של הקורס שלי <span class="ph">[שם הקורס]</span>.</p>
     <p>אני רוצה מטלה אחת לשבוע <span class="ph">[מספר]</span>, שבודקת הבנה ויישום, ולא שינון.</p>
     <p>כתוב אותה בקנבס: הנחיות לסטודנטים ולסטודנטיות, היקף, ומחוון קצר.</p>
-    <p>אחרי זה נשפר אותה יחד.</p>
   </div>
-  <div class="f" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-    <span class="hotlabel">טיוטה בקנבס</span><span class="dim" aria-hidden="true">&larr;</span>
-    <span class="hotlabel">סימון פסקה ושינוי רק שלה</span><span class="dim" aria-hidden="true">&larr;</span>
-    <span class="hotlabel">שינוי האורך</span><span class="dim" aria-hidden="true">&larr;</span>
-    <span class="hotlabel" style="background:var(--g);color:#fff">ייצוא למסמך גוגל</span>
-  </div>
+  <p class="note f">לפני השליחה: פלוס &larr; העלאת קבצים &larr; הסילבוס. ואז פלוס &larr;
+    <span lang="en">Canvas</span>.</p>
 </section>
 
-<!-- 10 תורכם: קנבס -->
+<!-- 17 תורכם: מסמך בקנבס -->
 <section class="slide spread">
   <img src="assets/logo.png" class="logo" alt="">
-  <h2>תורכם/ן: קנבס על הקורס שלכם/ן<span class="ws">נתרגל בסדנה</span></h2>
-  <div><p class="lead"><b>בונים/ות מה שרוצים/ות.</b> אם צריך נקודת פתיחה, הנה כמה רעיונות:</p>
+  <h2>תורכם/ן: מסמך בקנבס<span class="ws">נתרגל בסדנה</span></h2>
+  <div><p class="lead"><b>בונים/ות מה שרוצים/ות,</b> על הקורס שלכם/ן. אם צריך נקודת פתיחה:</p>
   <div class="cloud">
     <span class="chip f">מטלה לשבוע מסוים</span>
     <span class="chip f">מתווה לשיעור אחד</span>
-    <span class="chip f">עדכון של מצגת קיימת</span>
     <span class="chip f">שאלות לדיון בכיתה</span>
     <span class="chip f">מחוון למטלה קיימת</span>
+    <span class="chip f">דף הנחיות לעבודה</span>
   </div></div>
   <p class="closing f" style="margin-left:220px">סיימתם/ן? <b>סימן וי בצ'אט.</b> התבנית לפרומפט - בהנחיות לתרגול.</p>
   <div class="qr f"><img src="assets/qr-guide.png" alt="קוד QR להנחיות לתרגול"><span>הנחיות לתרגול</span></div>
 </section>
 
-<!-- 11 הפסקה + טיימר -->
+<!-- 18 שיטת העבודה: הערות בשורת הפרומפט -->
+<section class="slide spread">
+  <img src="assets/logo.png" class="logo" alt="">
+  <h2>איך אני עובד על מסמך</h2>
+  <div class="cols" style="align-items:center;gap:36px">
+    <div style="flex:1">
+      <ol class="steps">
+        <li class="f" style="font-size:25px">עוברים על המסמך מההתחלה עד הסוף.</li>
+        <li class="f" style="font-size:25px">כל הערה נכתבת מיד <b>בשורת הפרומפט</b>, שורה אחרי שורה.</li>
+        <li class="f" style="font-size:25px">בסוף - <b>שולחים הכל בבת אחת</b>.</li>
+      </ol>
+    </div>
+    <div class="f" style="flex:1.1">
+      <div class="ui" style="padding:14px 18px;border-radius:22px;font-size:19px;line-height:1.7" aria-hidden="true">
+        <div>בפסקה השנייה - להוסיף דוגמה מהשדה</div>
+        <div>המחוון - רק שלושה קריטריונים</div>
+        <div>ההנחיות - לקצר לחצי עמוד</div>
+        <div style="color:#8a8f98">|</div>
+      </div>
+      <p class="sr-only">הדמיה של שורת הפרומפט עם שלוש הערות, כל אחת בשורה משלה.</p>
+    </div>
+  </div>
+  <div class="f" style="display:flex;gap:40px;justify-content:center;align-items:center;font-size:25px">
+    <span><span class="key">
+      <span lang="en">Shift</span></span> + <span class="key">
+      <span lang="en">Enter</span></span>
+      &nbsp;שורה חדשה, בלי לשלוח</span>
+    <span><span class="key">
+      <span lang="en">Enter</span></span>
+      &nbsp;שליחה</span>
+  </div>
+</section>
+
+<!-- 19 הכלים בקנבס -->
+<section class="slide spread">
+  <img src="assets/logo.png" class="logo" alt="">
+  <h2>הכלים לעבודה על מסמך</h2>
+  <div class="tools">
+    <div class="card f"><h4>סימון ובקשה</h4><p>מסמנים קטע, וכותבים מה לשנות בו. שאר המסמך נשאר.</p></div>
+    <div class="card f"><span class="lbl">הצעה של שינויי עריכה</span><h4>הצעות לשיפור</h4><p>ג'מיני מציע שינויים בקטע שסימנתם/ן.</p></div>
+    <div class="card f"><span class="lbl">שינוי האורך &middot; שינוי הטון</span><h4>אורך וטון</h4><p>מקצר עד מאריך, ומיומיומי עד רשמי.</p></div>
+    <div class="card f"><h4>עריכה ידנית</h4><p>מקלידים ישירות במסמך: כותרות, הדגשה, רשימות.</p></div>
+    <div class="card f"><h4>גרסאות</h4><p>כל שינוי נשמר. אפשר לחזור לגרסה קודמת.</p></div>
+    <div class="card f"><span class="lbl">ייצוא אל
+      <span lang="en">Docs</span></span>
+      <h4>ייצוא</h4><p>ממשיכים לעבוד במסמך גוגל, כרגיל.</p></div>
+  </div>
+  <p class="closing f">השמות בתוויות הירוקות - כמו שהם מופיעים בממשק.</p>
+</section>
+
+<!-- 20 מצגת בקנבס -->
+<section class="slide spread">
+  <img src="assets/logo.png" class="logo" alt="">
+  <h2>ואפשר גם מצגת</h2>
+  <div class="cols">
+    <div class="card f">
+      <span class="tag" style="background:#fbecec;color:var(--red)">החיסרון</span>
+      <h4>מצגת בסיסית</h4>
+      <p style="font-size:24px">עיצוב פשוט, תמונות כלליות, ושליטה מוגבלת בכל שקופית. משפרים בבקשות.</p>
+    </div>
+    <div class="card f" style="border:2.5px solid var(--g)">
+      <span class="tag" style="background:var(--g);color:#fff">היתרון</span>
+      <h4>ייצוא ועריכה מלאה</h4>
+      <p style="font-size:24px">ייצוא למצגת גוגל (או ל-<!--
+        --><span lang="en">PDF</span>).
+        שם עורכים הכל, ומשם אפשר להוריד גם כ-<!--
+        --><span lang="en">PowerPoint</span>.</p>
+    </div>
+  </div>
+  <p class="closing f">טכניקות ליצירת מצגות טובות - במפגש הבא, ביום רביעי 7.10.</p>
+</section>
+
+<!-- 21 הפסקה + טיימר -->
 <section class="slide sep" style="justify-content:center">
   <div class="logo-card"><img src="assets/logo.png" alt=""></div>
   <svg class="sep-art" viewBox="0 0 440 360" aria-hidden="true">
@@ -458,56 +805,28 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
   <button type="button" class="tbtn" id="tmr-btn">&#9654; התחלת טיימר</button>
 </section>
 
-<!-- 12 נוטבוק -->
-<section class="slide">
-  <img src="assets/logo.png" class="logo" alt="">
-  <div class="kicker">קומה 3 מתוך 4 &middot; נוטבוק</div>
-  <h2>נוטבוק: פרויקט שזוכר</h2>
-  <div class="split" style="align-items:center">
-    <div class="tx">
-      <ul class="dots">
-        <li class="f" style="font-size:25px">מקום אחד לקורס: <b>מקורות</b>, <b>הנחיות קבועות</b>, וכל <b>השיחות</b> על הקורס.</li>
-        <li class="f" style="font-size:25px">ג'מיני זוכר את כל אלה בכל שיחה חדשה בתוך הנוטבוק.</li>
-        <li class="f" style="font-size:25px">מסונכרן עם נוטבוק אל-אם: מקור שמוסיפים במקום אחד, מופיע גם בשני.</li>
-      </ul>
-    </div>
-    <div class="im f" style="flex:.95">
-      <div class="nbk" aria-hidden="true">
-        <div class="hd">נוטבוק: הקורס שלי</div>
-        <div class="row"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z" fill="none" stroke="#5E9A28" stroke-width="2.2" stroke-linejoin="round"/><path d="M9 12h8M9 16h6" stroke="#5E9A28" stroke-width="2.2"/></svg></span><div><b>מקורות</b><span>סילבוס, מאמרים, מצגות</span></div></div>
-        <div class="row"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h13" stroke="#5E9A28" stroke-width="2.4" stroke-linecap="round"/></svg></span><div><b>הנחיות קבועות</b><span>"ענה בעברית, ברמה של שנה א'"</span></div></div>
-        <div class="row"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M3 5h18v11H9l-5 4v-4H3z" fill="none" stroke="#AF242A" stroke-width="2.2" stroke-linejoin="round"/></svg></span><div><b>שיחות</b><span>שבוע 1, שבוע 2, הכנה למבחן...</span></div></div>
-      </div>
-      <p class="sr-only">תרשים: נוטבוק של קורס, ובו מקורות, הנחיות קבועות ושיחות.</p>
+<!-- 22 מעבר: ג'ם -->
+<section class="slide sep" style="justify-content:center">
+  <div class="logo-card"><img src="assets/logo.png" alt=""></div>
+  <div class="sep-bld" aria-hidden="true">
+    <div class="mb">
+      <div class="fl">שיחה</div>
+      <div class="fl">קנבס</div>
+      <div class="fl act">ג'ם</div>
+      <div class="fl">נוטבוק</div>
+      <div class="roof"></div>
     </div>
   </div>
-  <p class="closing red f">הושק במנויים בתשלום. לא רואים את זה בתפריט הצד? זה בסדר - הקומה הבאה פתוחה לכולם.</p>
+  <div class="kicker">קומה 3 מתוך 4</div>
+  <h2>ג'ם</h2>
+  <p class="sub2">עוזר קבוע, שמכיר את הקורס ומחכה לכם/ן</p>
 </section>
 
-<!-- 13 נוטבוק או ג'ם -->
-<section class="slide spread">
-  <img src="assets/logo.png" class="logo" alt="">
-  <h2>נוטבוק או ג'ם?</h2>
-  <div class="cols">
-    <div class="card f">
-      <span class="tag">נוטבוק</span>
-      <h4>הפרויקט שלי</h4>
-      <p>אני עובד/ת בו לאורך זמן: מוסיף/ה מקורות, ממשיך/ה שיחות.</p>
-    </div>
-    <div class="card f" style="border:2.5px solid var(--g)">
-      <span class="tag" style="background:var(--g);color:#fff">ג'ם</span>
-      <h4>עוזר עם תפקיד קבוע</h4>
-      <p>אותו דבר בכל פעם, ואפשר גם <b>לשלוח אותו לסטודנטים ולסטודנטיות</b>.</p>
-    </div>
-  </div>
-  <p class="closing c f">היום בונים ג'ם - כי אותו אפשר לשתף.</p>
-</section>
-
-<!-- 14 ג'ם: דוגמה אמיתית -->
+<!-- 23 ג'ם: דוגמה אמיתית -->
 <section class="slide spread">
   <img src="assets/logo.png" class="logo" alt="">
   <div>
-    <div class="kicker">קומה 4 מתוך 4 &middot; ג'ם</div>
+    <div class="kicker">קומה 3 מתוך 4 &middot; ג'ם</div>
     <h2>ג'ם: עוזר שמכיר את הקורס</h2>
   </div>
   <div class="cols">
@@ -525,7 +844,7 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
   <p class="closing f">ג'ם טוב <span class="r">שואל לפני שהוא עונה.</span></p>
 </section>
 
-<!-- 15 האנטומיה של ג'ם -->
+<!-- 24 האנטומיה של ג'ם -->
 <section class="slide">
   <img src="assets/logo.png" class="logo" alt="">
   <h2>האנטומיה של ג'ם</h2>
@@ -565,7 +884,7 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
   <p class="closing f" style="font-size:26px">כתבתם/ן כמה מילים? <b>סמל העט עם הניצוצות</b> בתוך פרומפט הבסיס יהפוך אותן להוראות מלאות. <span class="r">ואז - חובה לעבור עליהן.</span></p>
 </section>
 
-<!-- 16 מקורות -->
+<!-- 25 מקורות -->
 <section class="slide">
   <img src="assets/logo.png" class="logo" alt="">
   <h2>מקורות: על מה הבוט נשען</h2>
@@ -574,7 +893,7 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
       <p class="statement" style="font-size:30px;margin-bottom:6px">"הבוט טוב בדיוק כמו המקורות שנתתם/ן לו."</p>
       <ul class="dots">
         <li class="f" style="font-size:23px"><b>קבצים:</b> סילבוס, מאמרי חובה, מצגות, מטלות. עד עשרה קבצים.</li>
-        <li class="f" style="font-size:23px"><b>מחברת של נוטבוק אל-אם כמקור:</b> כל מקורות הקורס במחברת אחת, והבוט נשען על כולם. כך עוקפים את מגבלת עשרת הקבצים.</li>
+        <li class="f" style="font-size:23px"><b>נוטבוק שלם כמקור:</b> כל מקורות הקורס בנוטבוק אחד, והבוט נשען על כולם. כך עוקפים את מגבלת עשרת הקבצים.</li>
         <li class="f" style="font-size:23px"><b>ברירת המחדל:</b> הבוט משתמש בקבצים ומצטט מהם, אבל הוא <b>לא מוגבל</b> אליהם.</li>
         <li class="f" style="font-size:23px"><b>"ענה רק מתוך המקורות"</b> בפרומפט הבסיס משפר את הסיכוי, <span class="r">אבל לא מבטיח</span>: הבוט עדיין עלול להשלים מהידע הכללי שלו, או לטעות. לכן - לבדוק.</li>
       </ul>
@@ -585,7 +904,7 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
         <div class="s" style="right:6px;top:26px">סילבוס</div>
         <div class="s" style="left:6px;top:26px">מאמרים</div>
         <div class="s" style="right:6px;bottom:26px">מצגות ומטלות</div>
-        <div class="s nb" style="left:0;bottom:20px">מחברת שלמה</div>
+        <div class="s nb" style="left:0;bottom:20px">נוטבוק שלם</div>
         <div class="bot">הבוט</div>
       </div>
     </div>
@@ -593,7 +912,7 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
   <p class="closing red f" style="font-size:26px">מי שמקבל את הבוט רואה גם את ההוראות ואת קובצי הידע. לא לשים שם שום דבר חסוי.</p>
 </section>
 
-<!-- 17 ג'מס הופכים לסקילים -->
+<!-- 26 ג'מס הופכים לסקילים -->
 <section class="slide">
   <img src="assets/logo.png" class="logo" alt="">
   <h2 style="margin-bottom:8px">רגע לפני: ג'מס הופכים לסקילים</h2>
@@ -612,7 +931,7 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
   <p class="dim" style="font-size:17px;margin-top:auto">מקור: דף העזרה הרשמי של גוגל על המעבר מג'מס לסקילים</p>
 </section>
 
-<!-- 18 הדגמה: ג'ם לקורס -->
+<!-- 27 הדגמה: ג'ם לקורס -->
 <section class="slide spread">
   <img src="assets/logo.png" class="logo" alt="">
   <div><div class="kicker">הדגמה חיה</div>
@@ -633,7 +952,7 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
   </div>
 </section>
 
-<!-- 19 בודקים, מתקנים, משתפים -->
+<!-- 28 בודקים, מתקנים, משתפים -->
 <section class="slide spread">
   <img src="assets/logo.png" class="logo" alt="">
   <h2>בדיקה, תיקון, שיתוף</h2>
@@ -652,7 +971,7 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
   </div>
 </section>
 
-<!-- 20 תורכם: ג'ם -->
+<!-- 29 תורכם: ג'ם -->
 <section class="slide spread">
   <img src="assets/logo.png" class="logo" alt="">
   <h2>תורכם/ן: ג'ם אישי לקורס שלכם/ן<span class="ws">נתרגל בסדנה</span></h2>
@@ -670,21 +989,190 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
   <div class="qr f"><img src="assets/qr-guide.png" alt="קוד QR להנחיות לתרגול"><span>הנחיות לתרגול</span></div>
 </section>
 
-<!-- 21 איך בוחרים כלי -->
+<!-- 30 מעבר: נוטבוק -->
+<section class="slide sep" style="justify-content:center">
+  <div class="logo-card"><img src="assets/logo.png" alt=""></div>
+  <div class="sep-bld" aria-hidden="true">
+    <div class="mb">
+      <div class="fl">שיחה</div>
+      <div class="fl">קנבס</div>
+      <div class="fl">ג'ם</div>
+      <div class="fl act">נוטבוק</div>
+      <div class="roof"></div>
+    </div>
+  </div>
+  <div class="kicker">קומה 4 מתוך 4</div>
+  <h2>
+    <span lang="en">Gemini Notebook</span></h2>
+  <p class="sub2">עד יולי קראו לו נוטבוק אל-אם: כל מקורות הקורס, ותוצרים מתוכם</p>
+</section>
+
+<!-- 31 נוטבוק: מסך הבית -->
 <section class="slide">
   <img src="assets/logo.png" class="logo" alt="">
-  <h2 style="margin-bottom:6px">איך בוחרים כלי?</h2>
-  <p class="dim" style="font-size:24px;margin-bottom:14px">את ההשוואה עשינו בשנה שעברה. היום - לפי מה שעושים:</p>
-  <div class="split" style="align-items:flex-start;gap:30px;padding-top:6px">
+  <div class="kicker">קומה 4 מתוך 4 &middot; נוטבוק</div>
+  <h2>מסך הבית</h2>
+  <div class="split" style="align-items:center">
+    <div class="tx" style="flex:.85">
+      <ul class="nums">
+        <li class="f"><b>הלשוניות:</b> שלי, ששותפו איתי, הצעות (נוטבוקים מוכנים של הוצאות וכותבים), ואוספים (כמו אלבומים).</li>
+        <li class="f"><b>חיפוש נוטבוקים</b> - לפי שם.</li>
+        <li class="f"><b>קוביות או רשימה</b> - איך להציג.</li>
+        <li class="f"><b>נוטבוק חדש</b> - מתחילים מכאן.</li>
+      </ul>
+      <p class="f dim" style="font-size:21px;margin-top:10px">כניסה:
+        <span class="url">notebook.google.com</span></p>
+    </div>
+    <div class="im f" style="flex:1.15">
+      <div class="ui nbh" style="width:600px" aria-hidden="true">
+        <div class="tabs"><span class="tab">הכול</span><span class="tab on">תיקיות ה-<!--
+          --><span lang="en">Notebook</span>
+          שלי</span><span class="tab">הצעות</span><span class="tab">פריטים ששותפו איתי</span><span class="tab">אוספים</span><span class="cn">1</span></div>
+        <div class="bar2"><span class="srch">חיפוש נוטבוקים</span><span class="cn" style="margin-right:0">2</span><span class="vw"><i></i><i></i></span><span class="cn" style="margin-right:0">3</span><span class="new">+ נוטבוק חדש</span><span class="cn" style="margin-right:0">4</span></div>
+        <div class="grid">
+          <div class="nc">10 מקורות<b>מבוא לסוציולוגיה</b></div>
+          <div class="nc">4 מקורות<b>מאמרי חובה - סמסטר א</b></div>
+          <div class="nc">2 מקורות<b>הכנה למבחן</b></div>
+          <div class="nc">6 מקורות<b>סמינר מחקר</b></div>
+          <div class="nc">1 מקור<b>נוהל עבודות</b></div>
+          <div class="nc">3 מקורות<b>קריאה לשבוע 2</b></div>
+        </div>
+      </div>
+      <p class="sr-only">הדמיה של מסך הבית של הנוטבוק: לשוניות, חיפוש, תצוגה בקוביות או ברשימה, וכפתור נוטבוק חדש.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 32 נוטבוק: הוספת מקורות -->
+<section class="slide">
+  <img src="assets/logo.png" class="logo" alt="">
+  <h2>הוספת מקורות</h2>
+  <div class="split" style="align-items:center">
+    <div class="tx">
+      <ul class="dots">
+        <li class="f" style="font-size:22px;margin:8px 0"><b>חיפוש ברשת:</b>
+          <span lang="en">Fast Research</span>
+          מביא כעשרה מקורות מהרשת או מהדרייב.
+          <span lang="en">Deep Research</span>
+          כותב דוח מעמיק, שאפשר להוסיף כמקור.</li>
+        <li class="f" style="font-size:22px;margin:8px 0"><b>העלאת קבצים:</b> מסמכים, מצגות, אודיו, תמונות ועוד. בחשבון חינמי - עד 50 מקורות לנוטבוק.</li>
+        <li class="f" style="font-size:22px;margin:8px 0"><b>אתרים:</b> קישור לאתר, או לסרטון ביוטיוב.</li>
+        <li class="f" style="font-size:22px;margin:8px 0"><b>ספרים:</b> חדש - ספרים שקניתם/ן בחנות הספרים של גוגל. בינתיים רק חלק מהספרים באנגלית.</li>
+        <li class="f" style="font-size:22px;margin:8px 0"><b>
+          <span lang="en">Drive</span>
+          </b> - מסמכים, מצגות וקבצים מהדרייב.</li>
+        <li class="f" style="font-size:22px;margin:8px 0"><b>טקסט שהועתק</b> - מדביקים כל טקסט.</li>
+      </ul>
+    </div>
+    <div class="im f" style="flex:.95">
+      <div class="ui srcd" style="width:500px;padding:16px" aria-hidden="true">
+        <div class="srch2">חיפוש מקורות חדשים באינטרנט<span style="margin-right:auto">אינטרנט &#8964;</span><span>
+          <span lang="en">Fast Research</span>
+          &#8964;</span></div>
+        <div class="btns"><span>העלאת קבצים</span><span>אתרים</span><span class="on">ספרים</span><span>
+          <span lang="en">Drive</span></span>
+          <span>טקסט שהועתק</span></div>
+        <div class="drop">כדי להעלות קבצים, צריך לגרור ולשחרר אותם.<br>
+          <span lang="en">PDF</span>,
+          קובצי אימג', אודיו ועוד</div>
+      </div>
+      <p class="sr-only">הדמיה של חלון הוספת המקורות: חיפוש ברשת, העלאת קבצים, אתרים, ספרים, דרייב וטקסט שהועתק.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 33 נוטבוק: שלושת האזורים -->
+<section class="slide spread">
+  <img src="assets/logo.png" class="logo" alt="">
+  <h2>שלושה אזורים: מקורות, צ'אט, סטודיו</h2>
+  <div class="three f" aria-hidden="true">
+    <div style="flex:1"><div class="hd3">מקורות</div><div class="sb">+ הוספת מקור</div><div class="sb" style="text-align:right;color:#8a8f98">חיפוש ברשת</div><div>&#9745; כל המקורות</div><div>&#9745; סילבוס הקורס</div><div>&#9745; מאמר חובה 1</div><div>&#9744; מאמר רשות</div></div>
+    <div style="flex:1.6"><div class="hd3">צ'אט</div><div class="ln"></div><div class="ln"></div><div class="ln s"></div><div class="ln"></div><div style="display:flex;gap:6px;margin-top:6px"><span class="sb" style="flex:1">שאלה מוצעת</span><span class="sb" style="flex:1">שאלה מוצעת</span></div><div class="sb" style="margin-top:auto;text-align:right;color:#8a8f98">כאן אפשר לשאול שאלה או ליצור משהו &middot; 3 מקורות</div></div>
+    <div style="flex:1.1"><div class="hd3">סטודיו</div><div class="stud"><span>סקירה קולית</span><span>מצגת</span><span>סקירת וידאו</span><span>מפת חשיבה</span><span>דוחות</span><span>כרטיסי עזר</span><span>בוחן</span><span>אינפוגרפיקה</span><span>טבלת נתונים</span></div><div class="sb" style="margin-top:auto">הוספת הערה</div></div>
+  </div>
+  <p class="sr-only">הדמיה של מסך הנוטבוק: מקורות, צ'אט במרכז, וסטודיו.</p>
+  <div class="cols" style="gap:16px">
+    <div class="card f" style="padding:14px 20px"><h4 style="font-size:24px">מקורות</h4><p style="font-size:20px">מוסיפים, ומסמנים על אילו מקורות לעבוד עכשיו.</p></div>
+    <div class="card f" style="padding:14px 20px;flex:1.4"><h4 style="font-size:24px">צ'אט</h4><p style="font-size:20px">שואלים על המקורות, והתשובה מפנה למקום שממנו היא לקוחה. תשובה טובה שומרים כהערה.</p></div>
+    <div class="card f" style="padding:14px 20px"><h4 style="font-size:24px">סטודיו</h4><p style="font-size:20px">תוצרים מוכנים מהמקורות, בלחיצה.</p></div>
+  </div>
+</section>
+
+<!-- 34 נוטבוק: הסטודיו -->
+<section class="slide">
+  <img src="assets/logo.png" class="logo" alt="">
+  <h2>הסטודיו: מה אפשר ליצור</h2>
+  <div class="studio">
+    <div class="card f"><h4>סקירה קולית</h4><p>פודקאסט על המקורות: שיחה של שני מגישים, או תקציר קצר.</p></div>
+    <div class="card f"><h4>סקירת וידאו</h4><p>סרטון מוסבר עם איורים: קצר (כדקה), או סרטון הסבר מקיף.</p></div>
+    <div class="card f"><h4>מצגת</h4><p>מצגת שנבנית מתוך המקורות.</p></div>
+    <div class="card f"><h4>מפת חשיבה</h4><p>מפה מסתעפת של הנושאים. לוחצים על ענף ומעמיקים.</p></div>
+    <div class="card f"><h4>דוחות<span class="new">חדש</span></h4><p>מדריך לימוד, תדריך, ועכשיו גם סקירת למידה אינטראקטיבית.</p></div>
+    <div class="card f"><h4>כרטיסי עזר</h4><p>כרטיסיות לחזרה על מושגים.</p></div>
+    <div class="card f"><h4>בוחן</h4><p>שאלות עם משוב, בכמה סוגים.</p></div>
+    <div class="card f"><h4>אינפוגרפיקה</h4><p>תמונה אחת שמסכמת את הרעיון המרכזי.</p></div>
+    <div class="card f"><h4>טבלת נתונים</h4><p>טבלה מסודרת מתוך המקורות, שאפשר לייצא לגיליון.</p></div>
+  </div>
+  <p class="closing f">בנוטבוק, כל תוצר נשען על המקורות שסימנתם/ן.</p>
+</section>
+
+<!-- 35 תורכם: נוטבוק -->
+<section class="slide spread">
+  <img src="assets/logo.png" class="logo" alt="">
+  <h2>תורכם/ן: נוטבוק לקורס<span class="ws">נתרגל בסדנה</span></h2>
+  <p class="f" style="font-size:26px">נכנסים ל-<!--
+    --><span class="url">notebook.google.com</span>,
+    ואז:</p>
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap" class="f">
+    <span class="hotlabel">נוטבוק חדש</span><span class="dim" aria-hidden="true">&larr;</span>
+    <span class="hotlabel">סילבוס ומאמר כמקורות</span><span class="dim" aria-hidden="true">&larr;</span>
+    <span class="hotlabel">שאלה בצ'אט</span><span class="dim" aria-hidden="true">&larr;</span>
+    <span class="hotlabel" style="background:var(--g);color:#fff">תוצר אחד מהסטודיו</span>
+  </div>
+  <p class="note f" style="margin-left:220px">רעיון: סקירה קולית קצרה על מאמר החובה, לשלוח לסטודנטים ולסטודנטיות לפני השיעור.</p>
+  <div class="cols" style="align-items:center;gap:30px;margin-left:220px">
+    <div class="quota f" style="flex:1" aria-hidden="true">
+      <b>שימוש ב-<!--
+        --><span lang="en">AI</span></b>
+      <div class="qb"><i></i></div>
+      <div class="lg"><span>&#9679; מכסה שנוצלה</span><span>&#9679; מכסת שימוש משוערת</span></div>
+    </div>
+    <p class="f" style="flex:1.2;font-size:23px">הפס בתחתית חלון היצירה מראה כמה מהמכסה התוצר יצרוך. <b>המכסה מתחדשת כל חמש שעות</b>, עד תקרה שבועית.</p>
+  </div>
+  <div class="qr f"><img src="assets/qr-guide.png" alt="קוד QR להנחיות לתרגול"><span>הנחיות לתרגול</span></div>
+</section>
+
+<!-- 36 פרטיות -->
+<section class="slide">
+  <img src="assets/logo.png" class="logo" alt="">
+  <h2>פרטיות וסודיות: מה מותר?</h2>
+  <div class="fill"><div class="cols" style="min-height:270px">
+    <div class="card f">
+      <svg width="46" height="46" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 20 24 8l18 12v4H6z" fill="#5E9A28"/><rect x="10" y="26" width="5" height="12" fill="#5E9A28"/><rect x="21.5" y="26" width="5" height="12" fill="#5E9A28"/><rect x="33" y="26" width="5" height="12" fill="#5E9A28"/><rect x="6" y="40" width="36" height="4" fill="#5E9A28"/></svg>
+      <h4 style="margin-top:8px;font-size:28px">ההנחיות הן מוסדיות</h4><p style="font-size:23px">מה מותר תלוי בחבילה שהמוסד רכש, ובמה שהמכללה אישרה.</p>
+    </div>
+    <div class="card f">
+      <svg width="46" height="46" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="16" r="9" fill="none" stroke="#5E9A28" stroke-width="4"/><path d="M8 42c2-9 9-13 16-13s14 4 16 13" fill="none" stroke="#5E9A28" stroke-width="4" stroke-linecap="round"/></svg>
+      <h4 style="margin-top:8px;font-size:28px">מידע על סטודנטים/ות</h4><p style="font-size:23px">רק בחשבון מוסדי, ורק אם המוסד אישר אותו לכך.</p>
+    </div>
+    <div class="card f">
+      <svg width="46" height="46" viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="21" width="30" height="22" rx="4" fill="#AF242A"/><path d="M15 21v-6a9 9 0 0 1 18 0v6" fill="none" stroke="#AF242A" stroke-width="4"/></svg>
+      <h4 style="margin-top:8px;font-size:28px">בחשבון אישי</h4><p style="font-size:23px">השיחות משמשות לשיפור המודלים, ובודקים אנושיים קוראים חלק מהן. לדברים רגישים - שיחה זמנית.</p>
+    </div>
+  </div></div>
+  <p class="closing red f">ומהשנה שעברה: לא מעלים שמות, ציונים או כל פרט מזהה.</p>
+</section>
+
+<!-- 37 אז מה לבחור -->
+<section class="slide">
+  <img src="assets/logo.png" class="logo" alt="">
+  <h2 style="margin-bottom:14px">אז מה לבחור?</h2>
+  <div class="split" style="align-items:flex-start;gap:30px">
     <div class="tx" style="flex:1.25">
-      <table>
-        <thead><tr><th scope="col">אם רוב העבודה שלכם/ן...</th><th scope="col" style="width:37%">כדאי להתחיל עם</th></tr></thead>
-        <tbody>
-          <tr class="f"><td>בתוך גוגל: דרייב, מסמכים, ג'ימייל</td><td><b>ג'מיני</b></td></tr>
-          <tr class="f"><td>כתיבה ארוכה, ועבודה עם מסמכים ארוכים</td><td><b>קלוד</b></td></tr>
-          <tr class="f"><td>שימוש כללי, תמונות, שיחה קולית</td><td><b>צ'אט ג'יפיטי</b></td></tr>
-        </tbody>
-      </table>
+      <div class="card f" style="padding:16px 22px;margin-bottom:12px"><h4 style="font-size:26px">עובדים/ות כל הזמן בסביבת גוגל?</h4><p style="font-size:23px">הכלים של גוגל שראינו היום: ג'מיני ו-<!--
+        --><span lang="en">Gemini Notebook</span>.</p></div>
+      <div class="card f" style="padding:16px 22px;margin-bottom:12px"><h4 style="font-size:26px">רוצים/ות להיכנס לוייב קודינג?</h4><p style="font-size:23px">קלוד קוד, אם המכללה מאפשרת. עוד על זה במפגש ב-8.10.</p></div>
+      <div class="card f" style="padding:16px 22px"><h4 style="font-size:26px">ומה עם צ'אט ג'יפיטי?</h4><p style="font-size:23px">שאלה טובה. <b>כל הכלים היום טובים.</b></p></div>
     </div>
     <div class="im f" style="flex:.95;align-items:flex-start">
       <div class="card" style="border:2.5px solid var(--gd);padding:22px 26px">
@@ -697,41 +1185,25 @@ a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
       </div>
     </div>
   </div>
-  <p class="closing f" style="margin-top:16px">מתחילים בכלי אחד ומעמיקים בו. מנוי שני - כשיודעים בשביל מה.</p>
 </section>
 
-<!-- 22 פרטיות: הזווית המוסדית -->
-<section class="slide">
-  <img src="assets/logo.png" class="logo" alt="">
-  <h2>פרטיות וסודיות: מה מותר?</h2>
-  <div class="fill"><div class="cols" style="min-height:280px">
-    <div class="card f">
-      <svg width="50" height="50" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 20 24 8l18 12v4H6z" fill="#5E9A28"/><rect x="10" y="26" width="5" height="12" fill="#5E9A28"/><rect x="21.5" y="26" width="5" height="12" fill="#5E9A28"/><rect x="33" y="26" width="5" height="12" fill="#5E9A28"/><rect x="6" y="40" width="36" height="4" fill="#5E9A28"/></svg>
-      <h4 style="margin-top:8px">ההנחיות הן מוסדיות</h4><p>מה מותר תלוי בחבילה שהמוסד רכש, ובמה שהמכללה אישרה. כדאי לבדוק לפני שמעלים חומרי קורס.</p>
-    </div>
-    <div class="card f">
-      <svg width="50" height="50" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="16" r="9" fill="none" stroke="#5E9A28" stroke-width="4"/><path d="M8 42c2-9 9-13 16-13s14 4 16 13" fill="none" stroke="#5E9A28" stroke-width="4" stroke-linecap="round"/></svg>
-      <h4 style="margin-top:8px">מידע על סטודנטים וסטודנטיות</h4><p>רק בחשבון מוסדי, ורק אם המוסד אישר אותו לכך.</p>
-    </div>
-  </div></div>
-  <p class="closing red f">ומהשנה שעברה: בחשבון פרטי לא מעלים שמות, ציונים או כל פרט מזהה.</p>
-</section>
-
-<!-- 23 מה הלאה -->
+<!-- 38 מה הלאה -->
 <section class="slide spread">
   <img src="assets/logo.png" class="logo" alt="">
   <h2>מה הלאה</h2>
   <div class="cols">
-    <div class="card f"><h4>הקלטה ומסמך סיכום</h4><p style="font-size:24px">יישלחו לכל מי שנרשם/ה, גם למי שלא הגיע/ה.</p></div>
-    <div class="card f"><h4>ההנחיות לתרגול</h4><p style="font-size:24px">נשארות פתוחות. אפשר לחזור אליהן בכל זמן.</p></div>
-    <div class="card f" style="flex:1.35"><h4>הסדנאות הבאות</h4><p style="font-size:24px"><b>רביעי 7.10, 12:00</b><br>ממתווה למצגת</p><p style="font-size:24px;margin-top:6px"><b>חמישי 8.10, 16:00</b><br>וייב קודינג, למתקדמים/ות</p></div>
+    <div class="card f"><h4 style="font-size:28px">הקלטה ומסמך סיכום</h4><p style="font-size:24px">יישלחו לכל מי שנרשם/ה, גם למי שלא הגיע/ה.</p></div>
+    <div class="card f"><h4 style="font-size:28px">ההנחיות לתרגול</h4><p style="font-size:24px">נשארות פתוחות. אפשר לחזור אליהן בכל זמן.</p></div>
+    <div class="card f" style="flex:1.35"><h4 style="font-size:28px">הסדנאות הבאות</h4>
+      <p style="font-size:24px"><b>רביעי 7.10, 12:00</b><br>ממתווה למצגת</p>
+      <p style="font-size:24px;margin-top:6px"><b>חמישי 8.10, 16:00</b><br>וייב קודינג, למתקדמים/ות</p></div>
   </div>
   <div class="f" style="flex:1;display:flex;align-items:center;justify-content:center">
     <p style="font-size:96px;font-weight:800;color:var(--gd)">שאלות?</p>
   </div>
 </section>
 
-<!-- 24 תודה -->
+<!-- 39 תודה -->
 <section class="slide">
   <div class="split">
     <div class="tx" style="text-align:center">
